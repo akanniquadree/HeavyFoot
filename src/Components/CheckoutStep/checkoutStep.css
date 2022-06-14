@@ -1,0 +1,16 @@
+.checkoutStep{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1rem auto;
+}
+.checkoutStep > div {
+    border-top: .3rem #c0c0c0 solid;
+    color: #c0c0c0;
+    flex: 1 1;
+}
+.checkoutStep > div.active {
+    border-top: .3rem #e61601 solid;
+    color: #e61601;
+    flex: 1 1;
+}

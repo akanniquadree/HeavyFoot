@@ -1,0 +1,20 @@
+.home{
+    width: 100vw;
+    /* background-color: black; */
+    background-color: #f0f2f5;
+    display: flex;
+    /* padding: 0 5% 0 5%;  */
+    margin: 20px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.homeSlider{
+    width: 87%;
+    display: flex;
+}
+@media screen and (max-width:700px) {
+    .homeSlider{
+        flex-direction: column;
+        width: 100%;
+    }
+}

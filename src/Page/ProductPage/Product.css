@@ -1,0 +1,9 @@
+.vome{
+    margin:0 7px 20px 7%;
+    color: black;
+    font-size: 18px;
+}
+.vome:hover{
+    text-decoration: underline;
+    color: #ed311c;
+}

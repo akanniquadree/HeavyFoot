@@ -1,0 +1,199 @@
+.topDisplay{
+    flex: 5;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
+    background-color: #fff;
+    border-radius: 15px;
+    margin-right: 8%;
+}
+.topDisplayWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.topDisplayRight{
+    flex: 1 1 50%;
+}
+.topDisplayRIghtWrapper{
+    width: 100%;
+    
+}
+.topDisplayRIghtWrapper >h4{
+    font-weight: 800;
+    font-size: 25px;
+    color: #e61601;
+    padding: 0;
+    margin: 10px 0 20px 10px;
+}
+.topDisplayRIghtWrapper > h4+span{
+    font-size: 20px;
+    font-weight: 800;
+    color: black;
+    margin: 0px 0 20px 10px;
+
+}
+.topDisplayRIghtWrapper > span +p{
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: line-through;
+    color: rgb(182, 179, 179);
+    margin: 0px 0 20px 10px;
+
+}
+.topDisplayAvail{
+    display: flex;
+    align-items: center;
+    margin: 0px 0 20px 0px;
+    padding-left: 10px;
+    height: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(182, 179, 179);
+}
+.topDisplayAvail >span{
+    font-size: 15px;
+    color: black;
+    padding-right: 25px;
+    margin: 0px 15px 0px 0px;
+    border-right: 1px solid rgb(182, 179, 179);
+}
+.topDisplayAvail >span + p{
+    font-size: 15px;
+    color: black;
+    
+}
+.topDisplayAvail + p{
+    font-size: 15px;
+    color: black;
+    margin: 0px 0px 10px 0px;
+    text-align: justify;
+    padding-bottom: 20px;
+    padding-Left: 10px;
+    padding-Right: 10px;
+    border-bottom: 1px solid rgb(182, 179, 179);
+}
+.topDisplayAvail + p + h5{
+    font-size: 17px;
+    color: black;
+    font-weight: 800;
+    margin: 0px 0px 10px 10px;
+
+}
+.QtyWrapper{
+    margin: 0px 15px 0px 10px;
+    position: relative;
+    display: inline-block;
+
+}
+.qty{
+    margin-right: 30px !important;
+    float: left;
+}
+.float-left{
+    margin: 8px 15px 0 0;
+    font-size: 15px;
+    float: left;
+}
+.qty > p ~ input{
+    border: 1px solid #dedede;
+    padding: 5px 10px;
+    margin: 4px 0 0 0;
+    outline: none;
+    background: #f7f7f7;
+    margin-left: 15px !important;
+}
+.size{
+    float: left;
+}
+.size select{
+    height: 28px;
+    border: 1px solid #dedede;
+    padding: 5px 10px;
+    margin: 4px 0 0 0;
+    outline: none;
+    background: #f7f7f7;
+}
+.topDisplayLeft{
+    flex: 1 1 40%;
+    margin-right: 20px;
+}
+.addbtn{
+        color: #fff;
+        background-color: #e61601;
+        text-align: center;
+        padding: 10px;
+        border:none;
+        margin-bottom: 10px;
+        width: 97%;
+}
+
+
+@media screen and (max-width:700px) {
+    .topDisplay{
+        margin-right: 0%;
+    }
+    .addbtn{
+        margin-left: 10px;
+        width: 93%;
+}
+}
+
+
+
+
+/* Middel display css */
+
+.middleDisplay{
+    width: 100%;
+}
+.middleDisplayWrapper{
+    /* display: flex; */
+    border: 1px solid #dedede;
+    margin: 30px;
+}
+.middleDisplayWrapper button{
+    background-color: #e61601;
+    color: white;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 150px;
+    display: inline;
+    float: left;
+    cursor: pointer;
+    transition: all 0.7s ease;
+    border: none;
+}
+.middleDisplayWrapper button:hover{
+    background-color: #e23f2c;
+}
+.btnactive{
+    background-color: #fff !important;
+    
+    color: #e61601 !important;
+}
+.middleDisplayWrapper p{
+    margin: 50px 20px 10px 20px;
+    text-align: justify;
+    font-size: 16px;
+    /* word-break: break-all; */
+    white-space: wrap;
+    transition: all 0.7s ease-in-out;
+
+}
+@media screen and (max-width:700px) {
+    .middleDisplayWrapper button{
+        padding: 8px;
+        width: 119px;
+        margin-right: 1px;
+    }
+    .middleDisplayWrapper{
+        /* display: flex; */
+        border: 1px solid #dedede;
+        margin: 15px;
+    }
+}

@@ -1,0 +1,79 @@
+.payment{
+    width: 100vw;
+    height: calc(100vh - 200px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.paymentWrapper{
+    width: 40%;
+    background-color: #fff;
+    -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+}
+.paymentMaster{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.paymentMaster input[type="radio"] {
+    margin-right: 10px;
+}
+.payment input:checked::after{
+    background-color: red;
+    
+}
+.paymentForm{
+    padding-left: 25px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+.paymentForm input{
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+
+}
+.image img{
+    height: 25px;
+}
+.paymentForm input:focus{
+    outline: none;
+}
+
+.paymentCard{
+    display: flex;
+    width: 100%;
+}
+.paymentCard input{
+    margin-right: -14px;
+    width: 100%;
+}
+.payment button{
+    background-color: #e61601;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 103%;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    margin-bottom: 10px;
+}
+
+
+@media screen and (max-width:700px) {
+    .paymentWrapper{
+        width: 100%;
+    }
+    .payment{
+        width: 100vw;
+        height: calc(100vh - 470px);
+    }
+}

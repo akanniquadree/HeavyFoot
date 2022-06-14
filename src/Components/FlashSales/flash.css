@@ -1,0 +1,115 @@
+.flash{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+.flashWrapper{
+    width: 87%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
+}
+.flashTop{
+    background-color: #e61601;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flashTop h5{
+    margin-left: 10px;
+    font-size: 23px;
+    color: white;
+    font-weight: 700 ;
+}
+.flashTop h6{
+    font-size: 17px;
+    color: white;
+    font-weight: 700 ;
+}
+.flash span{
+    margin-right: 10px;
+    font-size: 14px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.7 ease-in-out;
+}
+.flash span:hover{
+    background-color: #ed311c;
+}
+.flashBottom{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;    
+}
+.flashBottomCard{
+    margin: 15px 18px;
+    width: 200px;
+    /* background-color: black; */
+}
+.flashBottomCard img{
+    width: 170px;
+    height: 150px;
+    object-fit: cover;
+}
+.flashBottomCard h5{
+    margin: 0;
+    padding: 0;
+    font-size: 17px;
+    font-weight: 500;
+}
+.flashBottomCard span{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: black;
+}
+.flashBottomCard p{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: black;
+}
+
+@media screen and (max-width:700px) {
+    .flashWrapper{
+        width: 100%;
+    }
+    .flashBottom{
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;  
+        overflow-x: scroll !important;  
+    }
+    .flashTop h5{
+        margin-left: 10px;
+        font-size: 15px;
+        color: white;
+    }
+    .flashTop h6{
+        font-size: 12px;
+        color: white;
+    }
+    .flash span{
+        margin-right: 3px;
+        font-size: 14px;
+        padding: 4px;
+        border-radius: 5px;
+    }
+    .flashBottomCard{
+        margin: 15px 18px;
+        width: 100px;
+        /* background-color: black; */
+    }
+    .flashBottomCard img{
+        width: 120px;
+        height: 100px;
+        object-fit: cover;
+    }
+}

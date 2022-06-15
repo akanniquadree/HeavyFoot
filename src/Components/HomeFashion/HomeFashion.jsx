@@ -11,7 +11,7 @@ export default function HomeFashion() {
                 <span> View All</span>
             </div>
             <div className="homeFashionMiddle">
-                <img src="/Images/caro3.jpg" alt="" />
+                <img src="/Images/fashion.png" alt="" />
             </div>
             <div className="homeFashionBottom">
                 <div className="homeFashionBottomImg">
@@ -19,36 +19,42 @@ export default function HomeFashion() {
                   <h5>Vovegae Bag</h5> 
                   <span>$2000</span>
                   <p>$2200</p>
+                  <button>Add to Cart</button>
                 </div>
                 <div className="homeFashionBottomImg">
                   <img src="/Images/david.jpg" alt="" /> 
                   <h5>Vovegae Bag</h5> 
                   <span>$2000</span>
                   <p>$2200</p>
+                  <button>Add to Cart</button>
                 </div>
                 <div className="homeFashionBottomImg">
                   <img src="/Images/david.jpg" alt="" /> 
                   <h5>Vovegae Bag</h5> 
                   <span>$2000</span>
                   <p>$2200</p>
+                  <button>Add to Cart</button>
                 </div>
                 <div className="homeFashionBottomImg">
                   <img src="/Images/david.jpg" alt="" /> 
                   <h5>Vovegae Bag</h5> 
                   <span>$2000</span>
                   <p>$2200</p>
+                  <button>Add to Cart</button>
                 </div>
                 <div className="homeFashionBottomImg">
                   <img src="/Images/david.jpg" alt="" /> 
                   <h5>Vovegae Bag</h5> 
                   <span>$2000</span>
                   <p>$2200</p>
+                  <button>Add to Cart</button>
                 </div>
                 <div className="homeFashionBottomImg">
                   <img src="/Images/david.jpg" alt="" /> 
                   <h5>Vovegae Bag</h5> 
                   <span>$2000</span>
                   <p>$2200</p>
+                  <button>Add to Cart</button>
                 </div>
             </div>
         </div>

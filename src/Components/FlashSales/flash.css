@@ -5,6 +5,9 @@
     justify-content: center;
     overflow-x: hidden;
 }
+.MuiLink-underlineHover:hover {
+    text-decoration: none !important;
+}
 .flashWrapper{
     width: 87%;
     background-color: white;
@@ -15,27 +18,27 @@
 }
 .flashTop{
     background-color: #e61601;
-    height: 40px;
+    height: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .flashTop h5{
     margin-left: 10px;
-    font-size: 23px;
+    font-size: 17px;
     color: white;
     font-weight: 700 ;
 }
 .flashTop h6{
-    font-size: 17px;
+    font-size: 13px;
     color: white;
     font-weight: 700 ;
 }
 .flash span{
     margin-right: 10px;
-    font-size: 14px;
+    font-size: 12px;
     color: white;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.7 ease-in-out;
@@ -49,32 +52,66 @@
     flex-wrap: wrap;    
 }
 .flashBottomCard{
-    margin: 15px 18px;
-    width: 200px;
+    margin: 7px 9px;
+    width: 150px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.7s ease;
     /* background-color: black; */
 }
+.flashBottomCard button{
+   visibility: hidden;
+}
+.flashBottomCard:hover{
+    -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
+}
+.flashBottomCard:hover button{
+    visibility: visible;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff !important;
+    background-color: #e61601;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+}
 .flashBottomCard img{
-    width: 170px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
 }
 .flashBottomCard h5{
     margin: 0;
     padding: 0;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
+    color: black !important;
+
+}
+.flashBottomCard >div{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: black !important;
+
 }
 .flashBottomCard span{
     margin: 0;
     padding: 0;
-    font-size: 15px;
-    color: black;
+    font-size: 12px;
+    color: black !important;
 }
 .flashBottomCard p{
     margin: 0;
     padding: 0;
-    font-size: 15px;
-    color: black;
+    font-size: 12px;
+    color: black  !important;
 }
 
 @media screen and (max-width:700px) {
@@ -89,7 +126,6 @@
     }
     .flashTop h5{
         margin-left: 10px;
-        font-size: 15px;
         color: white;
     }
     .flashTop h6{
@@ -98,18 +134,15 @@
     }
     .flash span{
         margin-right: 3px;
-        font-size: 14px;
         padding: 4px;
         border-radius: 5px;
     }
     .flashBottomCard{
-        margin: 15px 18px;
+        margin: 3px 7px;
         width: 100px;
         /* background-color: black; */
     }
-    .flashBottomCard img{
-        width: 120px;
-        height: 100px;
-        object-fit: cover;
+    .flashBottomCard h5{
+        text-align: center;
     }
 }

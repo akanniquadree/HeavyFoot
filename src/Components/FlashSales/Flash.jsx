@@ -1,5 +1,6 @@
 import "./flash.css"
 import React from 'react'
+import { Link } from "@material-ui/core"
 
 export default function Flash() {
   return (
@@ -11,36 +12,69 @@ export default function Flash() {
             <span>See All</span>
         </div>
         <div className="flashBottom">
+            <Link to="/product">
             <div className="flashBottomCard">
                 <img src="/Images/boxer.jpg" alt="" />
                 <h5>Men Pant Boxers</h5>
                 <div>$25 - $50</div>
                 <p>1 item remaining</p>
+                <button>Add to Cart</button>
             </div>
+            </Link>
+            <Link to="/product">
             <div className="flashBottomCard">
                 <img src="/Images/boxer.jpg" alt="" />
                 <h5>Men Pant Boxers</h5>
-                <span>$25 - $50</span>
+                <div>$25 - $50</div>
                 <p>1 item remaining</p>
+                <button>Add to Cart</button>
             </div>
+            </Link>
+            <Link to="/product">
             <div className="flashBottomCard">
                 <img src="/Images/boxer.jpg" alt="" />
                 <h5>Men Pant Boxers</h5>
-                <span>$25 - $50</span>
+                <div>$25 - $50</div>
                 <p>1 item remaining</p>
+                <button>Add to Cart</button>
             </div>
+            </Link>
+            <Link to="/product">
             <div className="flashBottomCard">
                 <img src="/Images/boxer.jpg" alt="" />
                 <h5>Men Pant Boxers</h5>
-                <span>$25 - $50</span>
+                <div>$25 - $50</div>
                 <p>1 item remaining</p>
+                <button>Add to Cart</button>
             </div>
+            </Link>
+            <Link to="/product">
             <div className="flashBottomCard">
                 <img src="/Images/boxer.jpg" alt="" />
                 <h5>Men Pant Boxers</h5>
-                <span>$25 - $50</span>
+                <div>$25 - $50</div>
                 <p>1 item remaining</p>
+                <button>Add to Cart</button>
             </div>
+            </Link>
+            <Link to="/product">
+            <div className="flashBottomCard">
+                <img src="/Images/boxer.jpg" alt="" />
+                <h5>Men Pant Boxers</h5>
+                <div>$25 - $50</div>
+                <p>1 item remaining</p>
+                <button>Add to Cart</button>
+            </div>
+            </Link>
+            <Link to="/product">
+            <div className="flashBottomCard">
+                <img src="/Images/boxer.jpg" alt="" />
+                <h5>Men Pant Boxers</h5>
+                <div>$25 - $50</div>
+                <p>1 item remaining</p>
+                <button>Add to Cart</button>
+            </div>
+          </Link>
         </div>
         </div>
         

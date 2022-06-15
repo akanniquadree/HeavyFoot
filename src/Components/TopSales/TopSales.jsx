@@ -1,5 +1,6 @@
 import "./topsales.css"
 import React from 'react'
+import { Link } from "react-router-dom"
 
 export default function TopSales() {
   return (
@@ -9,36 +10,69 @@ export default function TopSales() {
             <h5>Top Sales</h5>
         </div>
         <div className="TopSalesBottom">
-            <div className="TopSalesBottomCard">
-                <img src="/Images/short.jpg" alt="" />
-                <h5>Men Pant Boxers</h5>
-                <span>$25 - $50</span>
-                <p>1 item remaining</p>
-            </div>
+        <Link to="/product">
             <div className="TopSalesBottomCard">
                 <img src="/Images/boxer.jpg" alt="" />
                 <h5>Men Pant Boxers</h5>
-                <span>$25 - $50</span>
+                <div>$25 - $50</div>
                 <p>1 item remaining</p>
+                <button>Add to Cart</button>
             </div>
+            </Link>
+            <Link to="/product">
             <div className="TopSalesBottomCard">
                 <img src="/Images/boxer.jpg" alt="" />
                 <h5>Men Pant Boxers</h5>
-                <span>$25 - $50</span>
+                <div>$25 - $50</div>
                 <p>1 item remaining</p>
+                <button>Add to Cart</button>
             </div>
+            </Link>
+            <Link to="/product">
             <div className="TopSalesBottomCard">
                 <img src="/Images/boxer.jpg" alt="" />
                 <h5>Men Pant Boxers</h5>
-                <span>$25 - $50</span>
+                <div>$25 - $50</div>
                 <p>1 item remaining</p>
+                <button>Add to Cart</button>
             </div>
+            </Link>
+            <Link to="/product">
             <div className="TopSalesBottomCard">
                 <img src="/Images/boxer.jpg" alt="" />
                 <h5>Men Pant Boxers</h5>
-                <span>$25 - $50</span>
+                <div>$25 - $50</div>
                 <p>1 item remaining</p>
+                <button>Add to Cart</button>
             </div>
+            </Link>
+            <Link to="/product">
+            <div className="TopSalesBottomCard">
+                <img src="/Images/boxer.jpg" alt="" />
+                <h5>Men Pant Boxers</h5>
+                <div>$25 - $50</div>
+                <p>1 item remaining</p>
+                <button>Add to Cart</button>
+            </div>
+            </Link>
+            <Link to="/product">
+            <div className="TopSalesBottomCard">
+                <img src="/Images/boxer.jpg" alt="" />
+                <h5>Men Pant Boxers</h5>
+                <div>$25 - $50</div>
+                <p>1 item remaining</p>
+                <button>Add to Cart</button>
+            </div>
+            </Link>
+            <Link to="/product">
+            <div className="TopSalesBottomCard">
+                <img src="/Images/boxer.jpg" alt="" />
+                <h5>Men Pant Boxers</h5>
+                <div>$25 - $50</div>
+                <p>1 item remaining</p>
+                <button>Add to Cart</button>
+            </div>
+          </Link>
         </div>
         </div>
         

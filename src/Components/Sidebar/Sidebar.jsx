@@ -9,19 +9,31 @@ export default function Sidebar() {
                 <li>
                     <div className="sidebarList">
                         <AirlineSeatFlat/>
-                        <span>Fashion</span>
+                        <span>Clothes</span>
                     </div>
                 </li>
                 <li>
                     <div className="sidebarList">
                         <AirlineSeatFlat/>
-                        <span>Gadget</span>
+                        <span>Jewelries</span>
                     </div>
                 </li>
                 <li>
                     <div className="sidebarList">
                         <AirlineSeatFlat/>
-                        <span>Phones</span>
+                        <span>Hats</span>
+                    </div>
+                </li>
+                <li>
+                    <div className="sidebarList">
+                        <AirlineSeatFlat/>
+                        <span>Bags</span>
+                    </div>
+                </li>
+                <li>
+                    <div className="sidebarList">
+                        <AirlineSeatFlat/>
+                        <span>Footwears</span>
                     </div>
                 </li>
                 <li>

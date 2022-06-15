@@ -1,26 +1,44 @@
 import "./slider.css"
-import React, { useRef, useEffect }  from 'react'
+import React, { useRef,useState, useEffect }  from 'react'
 import M from "materialize-css"
+import { ArrowLeft, ArrowRight } from "@material-ui/icons"
 
 
 
 
-export default function Slider() {
-    const slider = useRef(null)
+export default function Slider({slides}) {
+    const [current, setCurrent] = useState(0)
+    const length = slides.length
+    const nextSlide = () =>{
+      setCurrent(current === length - 1 ? 0 : current +1)
+      console.log(current)
+    }
+    const prevSlide = () =>{
+      setCurrent(current === 0 ? length - 1 : current -1)
+      console.log(current)
+    }
     useEffect(()=>{
-        M.Carousel.init(slider.current, {numVisible:1,noWrap:true, fullWidth:true, indicators: true})
     },[])
     
   return (
     <div className="slider">
         <div className="sliderWrapper">
-        <div className="carousel" ref={slider}>
-            <a className="carousel-item" href="#one!"><img src="/Images/caro.jpg" className="carousel-items" alt=""/></a>
-            <a className="carousel-item" href="#two!"><img src="/Images/caro1.jpg" className="carousel-items" alt=""/></a>
-            <a className="carousel-item" href="#three!"><img src="/Images/caro2.jpg" className="carousel-items" alt=""/></a>
-            <a className="carousel-item" href="#four!"><img src="/Images/caro3.jpg" className="carousel-items" alt=""/></a>
-            <a className="carousel-item" href="#five!"><img src="/Images/caro2.jpg" className="carousel-items" alt=""/></a>
-  </div>
+          <div className="carousel" >
+            {
+              slides.map((item, index)=>(
+                  <div className="carouselItem"key={index}>
+                    {index === current && (
+                      <div className="carouselItemWrapper">
+                        <img src={item.image} alt="" />
+                      </div>
+                    )}
+                  </div>
+              
+              ))
+            }
+            <ArrowLeft className="Arrow" onClick={prevSlide}/>
+            <ArrowRight className="Arrow" style={{marginLeft:"50px"}} onClick={nextSlide}/>
+          </div>
         </div>
     </div>
   )

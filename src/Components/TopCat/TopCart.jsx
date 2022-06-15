@@ -29,6 +29,15 @@ export default function TopCart() {
                 <img src="/Images/caro3.jpg" alt="" />
                 <h5>Fashion</h5>
             </div>
+            <div className="TopCartBottomCard">
+                <img src="/Images/caro3.jpg" alt="" />
+                <h5>Fashion</h5>
+            </div>
+            <div className="TopCartBottomCard">
+                <img src="/Images/caro3.jpg" alt="" />
+                <h5>Fashion</h5>
+            </div>
+            
         </div>
         </div>
         

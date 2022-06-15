@@ -14,25 +14,25 @@
 }
 .TopCartTop{
     background-color: #e61601;
-    height: 40px;
+    height: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .TopCartTop h5{
     margin-left: 10px;
-    font-size: 23px;
+    font-size: 17px;
     color: white;
     font-weight: 700 ;
 }
 .TopCartTop h6{
-    font-size: 17px;
+    font-size: 13px;
     color: white;
     font-weight: 700 ;
 }
 .TopCart span{
     margin-right: 10px;
-    font-size: 14px;
+    font-size: 12px;
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -48,13 +48,19 @@
     flex-wrap: wrap;    
 }
 .TopCartBottomCard{
-    margin: 15px 18px;
-    width: 200px;
+    margin: 7px 9px;
+    width: 150px;
+    cursor: pointer;
+    transition: all 0.5s;
     /* background-color: black; */
 }
+.TopCartBottomCard:hover{
+    -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
+}
 .TopCartBottomCard img{
-    width: 170px;
-    height: 150px;
+    width: 70x;
+    height: 100px;
     object-fit: cover;
 }
 .TopCartBottomCard h5{

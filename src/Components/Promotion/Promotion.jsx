@@ -6,7 +6,7 @@ export default function Promotion() {
     <div className="promotion">
         <div className="promotionWrapper">
             <div className="promotionTop" style={{marginBottom:"10px"}}>
-              <img src="/Images/DUBAI.gif" alt="" />
+              <img src="/Images/promotion.gif" alt="" />
             </div>
         </div>
         

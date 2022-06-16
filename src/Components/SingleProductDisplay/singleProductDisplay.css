@@ -23,59 +23,59 @@
 }
 .topDisplayRIghtWrapper >h4{
     font-weight: 800;
-    font-size: 25px;
+    font-size: 14px;
     color: #e61601;
     padding: 0;
-    margin: 10px 0 20px 10px;
+    margin: 10px 0 10px 10px;
 }
 .topDisplayRIghtWrapper > h4+span{
-    font-size: 20px;
+    font-size: 12px;
     font-weight: 800;
     color: black;
-    margin: 0px 0 20px 10px;
+    margin: 0px 0 5px 10px;
 
 }
 .topDisplayRIghtWrapper > span +p{
-    font-size: 15px;
+    font-size: 10px;
     font-weight: 800;
     text-decoration: line-through;
     color: rgb(182, 179, 179);
-    margin: 0px 0 20px 10px;
+    margin: 0px 0 10px 10px;
 
 }
 .topDisplayAvail{
     display: flex;
     align-items: center;
-    margin: 0px 0 20px 0px;
+    margin: 0px 0 10px 0px;
     padding-left: 10px;
     height: 15px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 1px solid rgb(182, 179, 179);
 }
 .topDisplayAvail >span{
-    font-size: 15px;
+    font-size: 13px;
     color: black;
     padding-right: 25px;
     margin: 0px 15px 0px 0px;
     border-right: 1px solid rgb(182, 179, 179);
 }
 .topDisplayAvail >span + p{
-    font-size: 15px;
+    font-size: 13px;
     color: black;
     
 }
 .topDisplayAvail + p{
-    font-size: 15px;
+    font-size: 13px;
     color: black;
     margin: 0px 0px 10px 0px;
     text-align: justify;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     padding-Left: 10px;
     padding-Right: 10px;
     border-bottom: 1px solid rgb(182, 179, 179);
 }
 .topDisplayAvail + p + h5{
-    font-size: 17px;
+    font-size: 13px;
     color: black;
     font-weight: 800;
     margin: 0px 0px 10px 10px;
@@ -93,12 +93,12 @@
 }
 .float-left{
     margin: 8px 15px 0 0;
-    font-size: 15px;
+    font-size: 13px;
     float: left;
 }
 .qty > p ~ input{
     border: 1px solid #dedede;
-    padding: 5px 10px;
+    padding: 3px 10px;
     margin: 4px 0 0 0;
     outline: none;
     background: #f7f7f7;
@@ -108,7 +108,7 @@
     float: left;
 }
 .size select{
-    height: 28px;
+    height: 20px;
     border: 1px solid #dedede;
     padding: 5px 10px;
     margin: 4px 0 0 0;
@@ -123,9 +123,9 @@
         color: #fff;
         background-color: #e61601;
         text-align: center;
-        padding: 10px;
+        padding: 4px;
         border:none;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         width: 97%;
 }
 
@@ -151,7 +151,7 @@
 .middleDisplayWrapper{
     /* display: flex; */
     border: 1px solid #dedede;
-    margin: 30px;
+    margin: 10px;
 }
 .middleDisplayWrapper button{
     background-color: #e61601;
@@ -160,7 +160,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 5px;
     width: 150px;
     display: inline;
     float: left;
@@ -177,9 +177,9 @@
     color: #e61601 !important;
 }
 .middleDisplayWrapper p{
-    margin: 50px 20px 10px 20px;
+    margin: 30px 20px 10px 20px;
     text-align: justify;
-    font-size: 16px;
+    font-size: 14px;
     /* word-break: break-all; */
     white-space: wrap;
     transition: all 0.7s ease-in-out;
@@ -195,5 +195,9 @@
         /* display: flex; */
         border: 1px solid #dedede;
         margin: 15px;
+    }
+    .middleDisplayWrapper p{
+        margin: 50px 20px 10px 20px;
+    
     }
 }

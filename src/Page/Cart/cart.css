@@ -18,7 +18,7 @@
     background-color: #fff;
 }
 .cartLeftTop{
-    height: 40px;
+    height: 30px;
     border-bottom: 1px solid rgb(182, 179, 179);
     display: flex;
     align-items: center;
@@ -26,7 +26,7 @@
 }
 .cartLeftTop h5{
     color: #e61601;
-    font-size: 22px;
+    font-size: 17px;
 
 }
 .cartLeftBottom{
@@ -35,8 +35,8 @@
     border-bottom: 1px solid rgb(182, 179, 179);
 }
 .cartLeftBottomRight{
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     margin-right: 10px;
 }
 .cartLeftBottomRight img{
@@ -48,7 +48,7 @@
     width: 70%;
 }
 .cartLeftBottomMiddle h5{
-    font-size: 22px;
+    font-size: 17px;
     color: #e61601;
     margin: 5px 0;
     font-weight: 800;
@@ -64,7 +64,7 @@
     flex-direction: column;
 }
 .cartLeftBottomLeft h5{
-    font-size: 25px;
+    font-size: 20px;
     color: #e61601;
     margin: 5px 0;
     font-weight: 800;

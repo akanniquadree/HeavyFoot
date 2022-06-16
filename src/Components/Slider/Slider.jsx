@@ -23,14 +23,13 @@ export default function Slider({slides}) {
   return (
     <div className="slider">
         <div className="sliderWrapper">
-          <div className="carousel" >
             {
               slides.map((item, index)=>(
-                  <div className="carouselItem"key={index}>
+                  <div className="carousel"key={index}>
                     {index === current && (
-                      <div className="carouselItemWrapper">
+    
                         <img src={item.image} alt="" />
-                      </div>
+         
                     )}
                   </div>
               
@@ -38,7 +37,6 @@ export default function Slider({slides}) {
             }
             <ArrowLeft className="Arrow" onClick={prevSlide}/>
             <ArrowRight className="Arrow" style={{marginLeft:"50px"}} onClick={nextSlide}/>
-          </div>
         </div>
     </div>
   )

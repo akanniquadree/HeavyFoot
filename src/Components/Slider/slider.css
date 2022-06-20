@@ -17,15 +17,36 @@
     height: 100%;
     /* display: flex; */
     flex-direction: row;
-    opacity: 1;
+    /* opacity: 0; */
     position: absolute;
-    transition: opacity ease-in-out 0.4s;
+    /* transition: opacity ease-in-out 0.1s; */
+}
+.active-anim{
+    opacity: 1 !important;
 }
 .carousel img{
     width: 100%;
     height: 100%;
     position: absolute;
     object-fit: cover;
+}
+.contDot{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+.dots{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 3px sold #fff;
+    margin: 0 5px;
+    background-color: #fff;
+}
+.active{
+    background: rgb(32, 32, 32);
 }
 .Arrow{
     position: absolute;

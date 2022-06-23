@@ -1,12 +1,17 @@
 import "./sidebar.css"
+import { useState } from "react"
 import {AirlineSeatFlat, Checkroom} from "@material-ui/icons"
 
 export default function Sidebar() {
+    const [cloth, setCloth] = useState(false)
+    const clothHandle = () =>{
+        setCloth(true)
+    }
   return (
     <div className="sidebar">
         <div className="sidebarContainer">
             <ul>
-                <li>
+                <li onClick={()=>clothHandle()}>
                     <div className="sidebarList">
                         <AirlineSeatFlat/>
                         <span>Clothes</span>
@@ -50,6 +55,9 @@ export default function Sidebar() {
                 </li>
             </ul>
         </div>
+        {
+            cloth && <h4>hiiii</h4>
+        }
     </div>
   )
 }

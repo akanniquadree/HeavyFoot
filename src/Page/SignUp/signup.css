@@ -1,0 +1,97 @@
+.signin{
+    width: 100vw;
+    height: calc(100vh - 250px);
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+.signin input{
+    padding-left: 40px;
+    padding-top: 10px;
+}
+.signinForm{
+    margin-top: 20px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+.signinForm h4{
+    color: #e61601;
+    font-size: 25px;
+    text-align:start;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+}
+.signinTop{
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.signinTop input{
+    flex: 1 1;
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 7px;
+    font-size: 15px;
+
+}
+
+.signinTop input:first-child{
+    margin-right: 20px;
+
+}
+.signinTop input:focus{
+    outline: none;
+}
+.signinTop2{
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.signinTop2 input{
+    padding: 7px;
+    font-size: 15px;
+    margin-right: 10px;
+}
+.signinTop2 input:checked{
+    background-color: #e61601;
+}
+.signinTop2 span{
+    letter-spacing: 3px;
+    font-size: 14px;
+}
+.signinTop2 a{
+    letter-spacing: 3px;
+    text-decoration: underline;
+    margin-right: 5px;
+    font-size: 14px;
+    color: #e61601;
+}
+.signinTop2 button{
+    width: 100%;
+    padding: 10px;
+    background-color: #e61601;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.5s ease-in;
+
+}
+.signinTop2 button:hover{
+    background-color: #f73621;
+}
+.signinForm p{
+    text-align: center;
+}
+.signinForm a{
+    align-self: center;
+    color: #e61601;
+
+}

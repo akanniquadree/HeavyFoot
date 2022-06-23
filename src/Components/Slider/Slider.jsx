@@ -70,7 +70,7 @@ export default function Slider({slides}) {
             <ArrowRight className="Arrow" style={{marginLeft:"50px"}} onClick={nextSlide}/>
             <div className="contDot">
               {Array.from({length:length}).map((item, index)=>(
-                <div className={ current === index +1 ? "dots active": "dots"} onClick={()=>{moveDot(index + 1)}}></div>
+                <div className={ current === index +1 ? "dots sliactive": "dots"} onClick={()=>{moveDot(index + 1)}}></div>
               ))}
             </div>
         </div>

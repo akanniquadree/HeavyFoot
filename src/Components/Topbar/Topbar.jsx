@@ -2,7 +2,8 @@ import "./topbar.css"
 import {ArrowDropDown, HelpOutline, Person, Search, ShoppingCart} from "@material-ui/icons"
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem';
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 
 function Topbar() {
@@ -10,6 +11,8 @@ function Topbar() {
   const [help, setHelp] = useState(null);
   const open = Boolean(anchorEl);
   const openHelp = Boolean(help);
+  const {user} = useContext(AuthContext)
+  console.log(user)
   const accountClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -44,7 +47,7 @@ function Topbar() {
                   onClick={accountClick}
                 >
                    <Person htmlColor="black"/>
-                   <span>Account</span> 
+                   <span>{user ? user.firstName : "Account"}</span> 
                    <ArrowDropDown htmlColor="black"/>
                 </div>
                 <div className="topbarLeftInfo" 
@@ -77,9 +80,21 @@ function Topbar() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={accountClose}>My Profile</MenuItem>
-        <MenuItem onClick={accountClose}>Sign In </MenuItem>
-        <MenuItem onClick={accountClose}>Log out</MenuItem>
+        
+        {
+          user ?
+          <>
+              <MenuItem onClick={accountClose}>My Profile</MenuItem>
+              <MenuItem onClick={accountClose}>Log out</MenuItem>
+          </>
+          :
+          <>
+              <MenuItem onClick={accountClose}>Log In </MenuItem>
+              <MenuItem onClick={accountClose}>Sign Up </MenuItem>
+          </>
+        }
+        
+        
       </Menu>
         <Menu
         id="basic-menu"

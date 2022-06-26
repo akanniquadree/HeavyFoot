@@ -1,3 +1,4 @@
+import { useContext, useEffect } from 'react';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
@@ -12,8 +13,18 @@ import ShippingAddress from './Page/ShippingAddress/ShippingAddress';
 import SignIn from './Page/SignIn/SignIn';
 import Signup from './Page/SignUp/Signup';
 import SingleProduct from './Page/SingleProduct/SingleProduct';
+import {AuthContext} from "./Context/AuthContext"
+import { LOGIN_SUCCESS } from './Context/AuthAction';
 
 function App() {
+  const {dispatch} = useContext(AuthContext)
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"))
+    if(user){
+      dispatch({type:LOGIN_SUCCESS, payload:user})
+    }
+  }, [dispatch])
+  
   return (
     <div className="App">
      <BrowserRouter>

@@ -15,6 +15,7 @@ import Signup from './Page/SignUp/Signup';
 import SingleProduct from './Page/SingleProduct/SingleProduct';
 import {AuthContext} from "./Context/AuthContext"
 import { LOGIN_SUCCESS } from './Context/AuthAction';
+import Dashboard from './Page/Admin/Dashboard/Dashboard';
 
 function App() {
   const {dispatch} = useContext(AuthContext)
@@ -39,6 +40,11 @@ function App() {
         <Route path='/reciept' exact element={<Reciept/>}/>
         <Route path='/signup' exact element={<Signup/>}/>
         <Route path='/login' exact element={<SignIn/>}/>
+
+
+
+
+        <Route path='/admin' exact element={<Dashboard/>}/>
       </Routes>
      </BrowserRouter>
     </div>

@@ -16,6 +16,8 @@ import SingleProduct from './Page/SingleProduct/SingleProduct';
 import {AuthContext} from "./Context/AuthContext"
 import { LOGIN_SUCCESS } from './Context/AuthAction';
 import Dashboard from './Page/Admin/Dashboard/Dashboard';
+import ViewUser from './Page/Admin/User/ViewUser';
+import ViewCloth from './Page/Admin/Product/Clothes/ViewCloth';
 
 function App() {
   const {dispatch} = useContext(AuthContext)
@@ -45,6 +47,8 @@ function App() {
 
 
         <Route path='/admin' exact element={<Dashboard/>}/>
+        <Route path='/admin/viewuser' exact element={<ViewUser/>}/>
+        <Route path='/admin/product/viewcloth' exact element={<ViewCloth/>}/>
       </Routes>
      </BrowserRouter>
     </div>

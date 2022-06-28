@@ -1,0 +1,61 @@
+.user{
+    width: 100vw;
+}
+.userContainer{
+    display: flex;
+}
+.userWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+.userWrapperSearchContainer{
+    display: flex;
+    margin-bottom: 10px ;
+    justify-content: flex-end;
+    align-items: center;
+}
+.userWrapperSearch{
+    display: flex;
+    margin-right: 3rem;
+    background-color: #fff;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid black ;
+
+}
+.userWrapperSearch input{
+    border: none;
+    padding: 5px;
+}
+.userWrapperSearch input:focus{
+    outline: none;
+}
+.userWrapper table{
+    width: 97%;
+    border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+}
+.userWrapper table thead{
+    background-color: grey;
+    height: 30px;
+    font-size: 15px;
+    border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+    padding: 8px;
+}
+.userWrapper table td{
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	padding: 8px;
+    font-size: 12px;
+    text-align: center;
+}
+.userWrapper table tr:nth-child(even){
+	background-color: #ccc;
+}
+.trHover:hover{
+    background-color: rgb(231, 228, 228);
+}

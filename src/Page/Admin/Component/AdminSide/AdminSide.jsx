@@ -30,7 +30,7 @@ export default function AdminSide() {
                     </Link>
                 </li>
                 <li onMouseOver={()=>{userHandler()}} onMouseLeave={()=>{userHandlerClose()}}>
-                    <Link to="" style={{width:"100%"}}>
+                    <Link to="/admin/user" style={{width:"100%"}}>
                         <People htmlColor="black" style={{ fontSize: 15 }}/>
                         <span className='detail'>Users</span>
                     </Link>
@@ -65,7 +65,7 @@ export default function AdminSide() {
                     <li onMouseOver={()=>{productHandler()}} onMouseLeave={()=>{productHandlerClose()}} className="mouseOver">
                         <ul>
                             <li>
-                                <Link to="" style={{width:"100%"}}>
+                                <Link to="/admin/viewcloth" style={{width:"100%"}}>
                                     <Category htmlColor="black" style={{ fontSize: 15 }}/>
                                     <span className='detail'>Clothes</span>
                                 </Link>

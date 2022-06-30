@@ -29,13 +29,7 @@ function Topbar() {
   return (
     <div className="topbarAdminContainer">
         <div className="topbarAdminWrappers">
-            <div className="topbarAdminRight">
-              <Link to="/" style={{display:"flex", alignItems:"center"}}>
-                <img src="/Images/logo.jpg" className="logo" alt="logo" />
-                <h3>Heavy Foot</h3>
-              </Link>
-                
-            </div>
+            
            
             <div className="topbarAdminLeft">
                 <div className="topbarAdminLeftInfo" 

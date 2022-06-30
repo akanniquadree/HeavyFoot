@@ -6,15 +6,12 @@ import "./dashboard.css"
 
 export default function Dashboard() {
   return (
-    <div className='dash'>
-        <Topbar/>
         <div className='dashboard'>
             <AdminSide/>
-            <div style={{flex:"7 1"}}>
+            <div style={{flex:"5 1", paddingLeft:"30px"}}>
+                <Topbar/>
                 <DashTop/>
             </div>
         </div>
-    </div>
-    
   )
 }

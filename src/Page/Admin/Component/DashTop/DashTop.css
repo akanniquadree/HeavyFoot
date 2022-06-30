@@ -3,14 +3,81 @@
 }
 .dashTopWrapper{
     display: flex;
-    margin-top: 20px;
-    margin-left: 40px;
+    flex-direction: column;
 }
 .dashTopUp{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.dashTopUp >div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.dashTop >div h3{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+.dashTop p{
+    margin: 10px 0;
+    padding: 0;
+    font-size: 15px;
+}
+.dashTop >div span{
+    align-self: flex-end;
+}
+.dashTopBottom{
+    height: 150px;
+    display: flex;
+    position: relative;
+    flex-wrap: nowrap; 
+    overflow-x: scroll !important;
+}
+.dashTopCard{
+    -webkit-box-shadow:0px 0px 15px -10px rgba(0,0,0,0.67);
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.67);
+    height: 130px;
+    width: 150px;
+    background-color: #fff;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px ;
+    margin-right: 15px;
+}
+.dashTopCardIcon{
+    margin-right: 15px;
+}
+.dashTopCardDetails{
+    
+}
+.dashTopCardDetail h4{
+    margin: 0;
+    padding: 0;
+    font-size: 29px;
+    font-weight: 800;
+}
+.para{
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    color: #636e72;
+}
+.dashTopCardDetail > div{
+    display: flex;
+}
+.dashTopCardDetail > div span{
+    align-self: flex-end;
+    margin-left: 15px;
+}
+/* .dashTopUp{
     -webkit-box-shadow:0px 0px 15px -10px rgba(0,0,0,0.67);
     box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.67);
     height: 120px;
     width: 170px;
     border-radius: 15px;
     background-color: #fff;
-}
+} */

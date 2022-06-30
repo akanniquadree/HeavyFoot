@@ -5,7 +5,27 @@
     background-color: #fff;
     -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
-    height: calc(100vh - 50px);
+    height: 100vh;
+    position: sticky;
+}
+.AdminSideTop{
+    display: flex;
+    width: 100%;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+}
+.AdminSideTop img {
+    height: 36px;
+    margin-left: 15px;
+    object-fit: cover;
+}
+.AdminSideTop h3 {
+    color: black;
+    letter-spacing: 1px;
+    padding: 0;
+    margin: 0 5px;
+    font-size: 17px;
 }
 .adminSideWrapper ul{
     margin: 0;
@@ -14,25 +34,64 @@
 }
 .adminSideWrapper ul > li {
     padding: 12px;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
 }
 
 .adminSideWrapper ul > li:hover {
-    background-color: rgb(215, 213, 213);
+    margin-left: 10px;
 }
 .mouseOver {
     padding: 1px !important;
-    transition: all 1s ease-in-out;
+    transform: translateY(0%);
+    /* transition: transform 0.7s ease-in; */
+    animation: slideDown 0.4s linear;
 }
-.mouseOver:hover{
-    background-color: #fff !important;
+.mouseRev{
+    animation: slideDown 0.6s linear;
+    animation-direction: reverse;
+    padding: 1px !important;
 }
 .mouseOver ul > li {
     padding: 3px !important;
     margin-left: 17px;
+    transition: all 0.5s ease-in-out;
+}
+.mouseOver ul > li:hover{
+    margin-left: 22px;
 }
 
 .detail{
-    color: black !important;
-    font-size: 1.0rem;
-    margin-left: .3rem;
+    color:  #636e72 !important;
+    font-size: 17px;
+    margin-left: .5rem;
+}
+.detail:hover{
+    color:blue !important
+}
+
+
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-45%);
+  }
+  25% {
+    opacity: 0.25;
+    transform: translateY(-25%);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-10%);
+  }
+  75% {
+    opacity: 0.75;
+    transform: translateY(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

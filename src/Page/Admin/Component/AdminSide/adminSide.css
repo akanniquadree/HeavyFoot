@@ -7,6 +7,8 @@
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
     height: 100vh;
     position: sticky;
+    /* overflow-y: scroll; */
+    top: 0px;
 }
 .AdminSideTop{
     display: flex;
@@ -44,9 +46,9 @@
 }
 .mouseOver {
     padding: 1px !important;
-    transform: translateY(0%);
-    /* transition: transform 0.7s ease-in; */
-    animation: slideDown 0.4s linear;
+    /* transform: translateY(0%); */
+    transition: transform 0.7s ease-in;
+    /* animation: slideDown 0.4s linear; */
 }
 .mouseRev{
     animation: slideDown 0.6s linear;
@@ -70,6 +72,24 @@
 .detail:hover{
     color:blue !important
 }
+.example-enter {
+    opacity: 0 !important;
+    transform:translateX(-100%) !important;
+  }
+  .example-enter-active {
+    opacity: 1 !important;
+    transform:translateX(0) !important;
+    transition: opacity 300ms, transform 300ms !important;
+  }
+  .example-exit {
+    opacity: 1 !important;
+    transform:translateX(0) !important;
+  }
+  .example-exit-active {
+    opacity: 0 !important;
+    transform:translateX(-100%) !important;
+    transition: opacity 300ms, transform 300ms !important;
+  }
 
 
 

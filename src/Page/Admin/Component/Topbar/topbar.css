@@ -1,5 +1,5 @@
 .topbarAdminContainer{
-    width: 100%;
+    width: 97%;
     height: 50px;
     background-color: #fff;
     display: flex;
@@ -9,6 +9,8 @@
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
     position: sticky;
     z-index: 999;
+    margin-top: 10px;
+    border-radius: 5px;
     top: 0;
 }
 .topbarAdminWrappers{

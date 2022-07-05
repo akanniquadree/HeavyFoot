@@ -1,0 +1,23 @@
+.sales{
+    margin-top: 20px;
+}
+.sales h4{
+    font-size: 25px;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+}
+.salesTop{
+    margin: 20px 0;
+    background-color: #fff;
+    -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
+    height: 350px;
+    width: 97%;
+    padding: 20px 5px;
+    cursor: pointer;
+}
+.salesTop:hover{
+    -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
+}

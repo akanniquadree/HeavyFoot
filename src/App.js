@@ -20,6 +20,7 @@ import ViewUser from './Page/Admin/User/ViewUser';
 import ViewCloth from './Page/Admin/Product/Clothes/ViewCloth';
 import CreateCloth from './Page/Admin/Product/Clothes/CreateCloth';
 import EditCloth from './Page/Admin/Product/Clothes/EditCloth';
+import SalesReport from './Page/Admin/SalesReport/SalesReport';
 
 function App() {
   const {dispatch} = useContext(AuthContext)
@@ -50,9 +51,10 @@ function App() {
 
         <Route path='/admin' exact element={<Dashboard/>}/>
         <Route path='/admin/viewuser' exact element={<ViewUser/>}/>
-        <Route path='/admin/product/viewcloth' exact element={<ViewCloth/>}/>
-        <Route path='/admin/product/createcloth' exact element={<CreateCloth/>}/>
+        <Route path='/admin/product/view' exact element={<ViewCloth/>}/>
+        <Route path='/admin/product/create' exact element={<CreateCloth/>}/>
         <Route path='/admin/product/editcloth/:id' exact element={<EditCloth/>}/>
+        <Route path='/admin/sales' exact element={<SalesReport/>}/>
       </Routes>
      </BrowserRouter>
     </div>

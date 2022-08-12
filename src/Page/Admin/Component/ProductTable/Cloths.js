@@ -1,18 +1,23 @@
 import React, {useEffect, useState} from 'react'
 import TablePagination from '@mui/material/TablePagination';
-import { Delete, Edit, MoreVert, Search } from '@material-ui/icons'
+import { ArrowDownward, ArrowUpward, Delete, Edit, MoreVert, Search } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
 import { Menu, MenuItem } from '@material-ui/core'
 // import { data } from '../Data'
 import "../../Product/Clothes/cloth.css"
 import axios from "axios"
+import DeleteModal from '../../Product/Clothes/DeleteModal';
 
 export default function Cloths() {
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     const [product, setProduct] = useState([])
     const [search, setSearch] = useState("")
-    const [anchorEl, setAnchorEl] = useState(null);
+    const [asc, setAsc] = useState(false)
+    // const [anchorEl, setAnchorEl] = useState(null);
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [rowsPerPage, setRowsPerPage] = useState(5);
     const indexOfLastPage = page * rowsPerPage
     const indexOfFirstPage = indexOfLastPage + rowsPerPage
     const currentPosts = product.slice(indexOfLastPage, indexOfFirstPage)
@@ -22,7 +27,7 @@ export default function Cloths() {
         setProduct(data)
       }
       Clothe()
-    },[])
+    },[product])
 
     const SearchParams = (rows) =>{
         const columns = rows[0] && Object.keys(rows[0])
@@ -38,15 +43,16 @@ export default function Cloths() {
       setPage(0);
     };
 
-    const sort = Boolean(anchorEl);
-    const sortClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const sortClose = () => {
-        setAnchorEl(null);
-    }; 
+    // const sort = Boolean(anchorEl);
+    // const sortClick = (event) => {
+    //     setAnchorEl(event.currentTarget);
+    // };
+    // const sortClose = () => {
+    //     setAnchorEl(null);
+    // }; 
   const sortDesc = () => {
     product.reverse();
+    setAsc((currnt)=>!currnt)
   }; 
   return (
       <>
@@ -64,93 +70,64 @@ export default function Cloths() {
         <thead>
             <tr>
                 <th>Id 
-                <span style={{float:"right"}}><MoreVert style={{fontSize:"15"}} 
-                id="basic-button"
-                aria-controls={sort ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={sort ? 'true' : undefined}
-                onClick={sortClick}
+                
+                <span style={{float:"right"}}>
+                  { asc ? <ArrowUpward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/> :<ArrowDownward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/>}
+                  <MoreVert style={{fontSize:"15"}} 
                 /></span> 
                 </th>
                 <th>Name
-                <span style={{float:"right"}}><MoreVert style={{fontSize:"15"}} 
-                id="basic-button"
-                aria-controls={sort ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={sort ? 'true' : undefined}
-                onClick={sortClick}
+                <span style={{float:"right"}}>
+                { asc ? <ArrowUpward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/> :<ArrowDownward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/>}
+                  <MoreVert style={{fontSize:"15"}} 
                 /></span> 
                 </th>
                 <th>Category
-                <span style={{float:"right"}}><MoreVert style={{fontSize:"15"}} 
-                id="basic-button"
-                aria-controls={sort ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={sort ? 'true' : undefined}
-                onClick={sortClick}
+                <span style={{float:"right"}}>
+                { asc ? <ArrowUpward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/> :<ArrowDownward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/>}
+                  <MoreVert style={{fontSize:"15"}} 
                 /></span> 
                 </th>
-                <th>Product Price
-                <span style={{float:"right"}}><MoreVert style={{fontSize:"15"}} 
-                id="basic-button"
-                aria-controls={sort ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={sort ? 'true' : undefined}
-                onClick={sortClick}
+                <th>Price
+                <span style={{float:"right"}}>
+                { asc ? <ArrowUpward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/> :<ArrowDownward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/>}
+                  <MoreVert style={{fontSize:"15"}} 
                 /></span> 
                 </th>
-                <th>Discount Price
-                <span style={{float:"right"}}><MoreVert style={{fontSize:"15"}} 
-                id="basic-button"
-                aria-controls={sort ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={sort ? 'true' : undefined}
-                onClick={sortClick}
+                <th>Discount
+                <span style={{float:"right"}}>
+                { asc ? <ArrowUpward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/> :<ArrowDownward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/>}
+                  <MoreVert style={{fontSize:"15"}} 
                 /></span> 
                 </th>
-                <th>Quantity
-                <span style={{float:"right"}}><MoreVert style={{fontSize:"15"}} 
-                id="basic-button"
-                aria-controls={sort ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={sort ? 'true' : undefined}
-                onClick={sortClick}
+                <th>Qty
+                <span style={{float:"right"}}>
+                { asc ? <ArrowUpward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/> :<ArrowDownward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/>}
+                  <MoreVert style={{fontSize:"15"}} 
                 /></span> 
                 </th>
                 <th>Status
-                <span style={{float:"right"}}><MoreVert style={{fontSize:"15"}} 
-                id="basic-button"
-                aria-controls={sort ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={sort ? 'true' : undefined}
-                onClick={sortClick}
+                <span style={{float:"right"}}>
+                { asc ? <ArrowUpward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/> :<ArrowDownward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/>}
+                  <MoreVert style={{fontSize:"15"}} 
                 /></span> 
                 </th>
                 <th>Avater
-                <span style={{float:"right"}}><MoreVert style={{fontSize:"15"}} 
-                id="basic-button"
-                aria-controls={sort ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={sort ? 'true' : undefined}
-                onClick={sortClick}
+                <span style={{float:"right"}}>
+                { asc ? <ArrowUpward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/> :<ArrowDownward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/>}
+                  <MoreVert style={{fontSize:"15"}} 
                 /></span> 
                 </th>
-                <th>Images
-                <span style={{float:"right"}}><MoreVert style={{fontSize:"15"}} 
-                id="basic-button"
-                aria-controls={sort ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={sort ? 'true' : undefined}
-                onClick={sortClick}
+                {/* <th>Images
+                <span style={{float:"right"}}>
+                { asc ? <ArrowUpward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/> :<ArrowDownward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/>}
+                  <MoreVert style={{fontSize:"15"}} 
                 /></span> 
-                </th>
+                </th> */}
                 <th>Product Information
-                <span style={{float:"right"}}><MoreVert style={{fontSize:"15"}} 
-                id="basic-button"
-                aria-controls={sort ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={sort ? 'true' : undefined}
-                onClick={sortClick}
+                <span style={{float:"right"}}>
+                { asc ? <ArrowUpward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/> :<ArrowDownward style={{fontSize:"15", cursor:"pointer"}}  onClick={sortDesc}/>}
+                  <MoreVert style={{fontSize:"15"}} 
                 /></span> 
                 </th>
                 <th>Action</th>
@@ -160,22 +137,23 @@ export default function Cloths() {
             {
               SearchParams(currentPosts).map((itm, index)=>(
                     <tr className='trHover' key={index}>
-                        <td style={{width:"30px"}}>{itm.id}</td>
+                        <td style={{width:"40px"}}>{itm.id}</td>
                         <td>{itm.name}</td>
                         <td>{itm.category}</td>
                         <td>{itm.price}</td>
                         <td>{itm.discount}</td>
                         <td>{itm.quantity}</td>
                         <td>{itm.status}</td>
-                        <td style={{width:"100px"}} >
+                        <td style={{width:"90px"}} >
                           <img src={itm.avater} alt="jjf"/>
                         </td>
-                        <td>{itm.images}</td>
-                        <td style={{width:"200px"}}>{itm.description}</td>
+                        {/* <td>{itm.images}</td> */}
+                        <td style={{width:"270px"}}>{itm.description}</td>
                         <td>
                             <Edit htmlColor="green" style={{fontSize:"20", cursor:"pointer",marginRight:"10px"}}/>
-                            <Delete htmlColor="red" style={{fontSize:"20", cursor:"pointer",}}/>
+                            <Delete htmlColor="red"  onClick={handleOpen} style={{fontSize:"20", cursor:"pointer",}}/>
                         </td>
+                        <DeleteModal open={open} handleClose={handleClose} setOpen={setOpen} handleOpen={handleOpen} id={itm.id}/>
                 </tr>
                 ))
             }
@@ -206,9 +184,10 @@ export default function Cloths() {
       </div>
     </div>
         </div>
-        <Menu id="basic-menu" anchorEl={anchorEl} open={sort} onClose={sortClose}  MenuListProps={{'aria-labelledby': 'basic-button',}}>
+        {/* <Menu id="basic-menu" anchorEl={anchorEl} open={sort} onClose={sortClose}  MenuListProps={{'aria-labelledby': 'basic-button',}}>
                 <MenuItem onClick={()=>{sortClose();sortDesc()}}>Sort</MenuItem>
-        </Menu>
+        </Menu> */}
+        
       </>
     
   )

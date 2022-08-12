@@ -105,6 +105,7 @@
     text-overflow: ellipsis;
     text-align: start;
     vertical-align: top;
+    border-bottom: 1px solid #e3e3e3;
 }
 .clothWrapper table td button{
 	border: none;
@@ -191,7 +192,7 @@
     margin-top: 0px;
     width: 95%;
     padding: 10px;
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 20px;
 }
 .userWrapper form > textarea:focus{
@@ -199,6 +200,7 @@
 }
 .custom-file-input{
     border-bottom: 1px solid black !important;
+    padding: 6.8px !important;
   
 }
 .custom-file-input::-webkit-file-upload-button {

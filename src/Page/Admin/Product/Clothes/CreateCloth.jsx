@@ -5,11 +5,22 @@ import Topbar from '../../Component/Topbar/Topbar'
 import axios from "axios"
 import Stack from '@mui/material/Stack';
 import MuiAlert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+import Fade from '@mui/material/Fade';
+import Slide from '@mui/material/Slide';
+import Grow from '@mui/material/Grow';
 
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-  });
+// const Alert = React.forwardRef(function Alert(props, ref) {
+//     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+//   });
+
+
+
+
+function TransitionsSnackbar() {
+  
+}
 
 export default function CreateCloth() {
     const [name, setName] = useState("")
@@ -23,26 +34,40 @@ export default function CreateCloth() {
     const [images, setImages] = useState("")
     const [error, setError] = useState("")
     const [message, setMessage] = useState("")
-    const [open, setOpen] = React.useState(false);
-
-    const handleClick = () => {
-      setOpen(true);
-    };
-  
-    const handleClose = (event, reason) => {
-      if (reason === 'clickaway') {
-        return;
+    const [state, setState] = useState({
+        open: false,
+        Transition: Fade,
+      });
+    
+      function GrowTransition(props) {
+        return <Grow {...props} />;
       }
-  
-      setOpen(false);
-    };
+    
+      function SlideTransition(props) {
+        return <Slide {...props} direction="up" />;
+      }
+      
+    
+      const handleClick = (Transition) => () => {
+        setState({
+          open: true,
+          Transition,
+        });
+      };
+    
+      const handleClose = () => {
+        setState({
+          ...state,
+          open: false,
+        });
+      };
 
     const submitData = async(e) =>{
         try {
             e.preventDefault()
             const formData = new FormData()
             formData.append("name", name)
-            formData.append("file", images)
+            formData.append("images", images)
             formData.append("avater", avater)
             formData.append("price", price)
             formData.append("quantity", quantity)
@@ -50,11 +75,12 @@ export default function CreateCloth() {
             formData.append("discount", discount)
             formData.append("status", status)
             formData.append("description", description)
-            const data = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/admin/add_product", formData, {headers: {"Authorization": "Bearer 31|kEcedFEn6Y4KJaRDGbLvm2i9Uqfd6QEL2k5h3tGk" }})
+            const {data} = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/admin/add_product", formData, {headers: {"Authorization": "Bearer 41|kOxux51mqFmCChDku6VI85INKOsPGx000hmCdnpk" }})
             if(data){
-                window.location.replace("/admin/product/view")
+                // window.location.replace("/admin/product/view")
                 setError("")
                 setMessage(data.message)
+                console.log(data)
             }
             
             
@@ -78,33 +104,43 @@ export default function CreateCloth() {
                                 <input type="text" placeholder="Enter the Item Product Price" name="price" value={price} onChange={(e)=>setPrice(e.target.value)} required/>
                                 <input type="text" placeholder="Enter the Item Discount Price" name="discount" value={discount} onChange={(e)=>setDiscount(e.target.value)} required/>
                                 <input type="text" placeholder="Enter the Item Quantity" value={quantity} name="quantity" onChange={(e)=>setQuantity(e.target.value)} required/>
-                                <input type="text" placeholder="Enter the Item Available Quantity " value={status} name="status" onChange={(e)=>setStatus(e.target.value)} required/>
+                               
                             </div>
                             <div className="userFormRight">
                                 <input type="file" className="custom-file-input" onChange={(e)=>{setAvater(e.target.files[0])}} />
                                 <input type="file" className="custom-file-input"  onChange={(e)=>{setImages(e.target.files[0])}}/>
                                  <input type="text" placeholder="Enter the Item Category " value={category} name="category" onChange={(e)=>setCategory(e.target.value)} required/>
+                                 <input type="text" placeholder="Enter the Item Available Quantity " value={status} name="status" onChange={(e)=>setStatus(e.target.value)} required/>
                             </div>
                         </div>
-                        <textarea  placeholder='Enter the product Information' required value={description} onChange={(e)=>setDescription(e.target.value)}></textarea>
-                        <button type='submit' className="userCreate" onClick={handleClick}>Create Product</button>
-                    </form>
-                    <Stack sx={{ width: '100%' }} open={open} autoHideDuration={6000} onClose={handleClose}>
-                        {
-                            error &&
-                            <Alert  onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-                                {error}
-                            </Alert>
-                        }
-                       
-                        {
-                            message &&
-                            <Alert  onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                                This is an info alert — check it out!
-                            </Alert>
-                        }
+                        <textarea rows={10} placeholder='Enter the product Information' required value={description} onChange={(e)=>setDescription(e.target.value)}></textarea>
+                        <button type='submit' className="userCreate" onClick={handleClick(SlideTransition)}>Create Product</button>
                         
-                    </Stack>
+                                {
+                                    error &&
+                                    <Snackbar
+                                        open={state.open}
+                                        onClose={handleClose}
+                                        TransitionComponent={state.Transition}
+                                        message="I love snacks"
+                                        key={state.Transition.name}
+                                        
+                                    />
+                                }
+                       
+                                {
+                                    message &&
+                                    <Snackbar
+                                        open={state.open}
+                                        onClose={handleClose}
+                                        TransitionComponent={state.Transition}
+                                        message={message}
+                                        key={state.Transition.name}
+                                    />
+                                    
+                                }
+                    </form>
+                    
                 </div>
             </div>
         </div>

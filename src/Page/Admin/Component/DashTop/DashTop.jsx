@@ -62,6 +62,18 @@ function DashTop() {
                   <p className='para'>New User</p>
                 </div>
               </div>
+              <div className="dashTopCard">
+                <div className="dashTopCardIcon">
+                  <People htmlColor="blue" style={{fontSize:"40"}}/>
+                </div>
+                <div className="dashTopCardDetail" >
+                  <div>
+                    <h4>234</h4>
+                    <span>+4</span>
+                  </div>
+                  <p className='para'>New User</p>
+                </div>
+              </div>
               
             </div>
         </div>

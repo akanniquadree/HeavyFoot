@@ -13,7 +13,6 @@ function Topbar() {
   const open = Boolean(anchorEl);
   const openHelp = Boolean(help);
   const {user} = useContext(AuthContext)
-  console.log(user)
   const accountClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -29,27 +28,13 @@ function Topbar() {
   return (
     <div className="topbarAdminContainer">
         <div className="topbarAdminWrappers">
-            
-           
+            <Menu htmlColor="black" size="20" className="hiddens"/>
             <div className="topbarAdminLeft">
-                <div className="topbarAdminLeftInfo" 
-                  id="basic-button"
-                  aria-controls={open ? 'basic-menu' : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? 'true' : undefined}
-                  onClick={accountClick}
-                >
-                   <Person htmlColor="black"/>
-                   <span>{user ? user.firstName : "Account"}</span> 
-                   <ArrowDropDown htmlColor="black"/>
+                <div className="topbarAdminLeftInfo" id="basic-button" aria-controls={open ? 'basic-menu' : undefined} aria-haspopup="true"aria-expanded={open ? 'true' : undefined} onClick={accountClick}>
+                  <Person htmlColor="black"/>
+                  <span>{user ? user.firstName : "Account"}</span> 
+                  <ArrowDropDown htmlColor="black"/>
                 </div>
-            
-    
-                <div className="">
-                   {/* <Menu htmlColor="black" size="20" className="hidden"/> */}
-                </div>
-                
-                
             </div>
         </div>
         <Menu

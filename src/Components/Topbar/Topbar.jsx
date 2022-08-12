@@ -13,7 +13,6 @@ function Topbar() {
   const open = Boolean(anchorEl);
   const openHelp = Boolean(help);
   const {user} = useContext(AuthContext)
-  console.log(user)
   const accountClick = (event) => {
     setAnchorEl(event.currentTarget);
   };

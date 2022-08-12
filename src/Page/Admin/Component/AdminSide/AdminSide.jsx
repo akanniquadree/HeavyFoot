@@ -1,31 +1,12 @@
 import { Category, Dashboard, MoneyOff, People, PersonAdd,Dehaze ,RateReview, Storefront, TrendingDown, ViewArray, ArrowDropDown } from '@material-ui/icons'
 import React, { useState , useEffect} from 'react'
-import {Transition, CSSTransition} from "react-transition-group"
 import { Link } from 'react-router-dom'
 import "./adminSide.css"
 
-export default function AdminSide({in:inProp}) {
-    const duration = 500
-    const defaultStyle = {
-        transition:`opacity ${duration}ms ease-in-out`
-    }
-    const transitionStyles={
-        entering:{opacity:0.5},
-        entered:{opacity: 1},
-        exiting:{opacity:0.5},
-        exited:{opacity:0}
-    }
-    const [users, setUsers] = useState(false)
+export default function AdminSide() {
     const [products, setProducts] = useState(false)
     useEffect(()=>{
     })
-   
-    const userHandler = () =>{
-        setUsers(true)
-    }
-    const userHandlerClose = () =>{
-        setUsers(false)
-    }
     const productHandler = () =>{
         setProducts(true)
     }
@@ -68,8 +49,7 @@ export default function AdminSide({in:inProp}) {
                 </li>
                 {
                     products &&
-                    <CSSTransition in={products} timeout={300} className="example-enter example-enter-active example-exit example-exit-active " unmountOnExit>
-                    <li onMouseOver={()=>{productHandler()}} onMouseLeave={()=>{productHandlerClose()}} id="myDIV" className="mouseOver">
+                    <li onMouseOver={()=>{productHandler()}} onMouseLeave={()=>{productHandlerClose()}} className="mouseOver">
                         <ul>
                             <li>
                                 <Link to="/admin/product/create" style={{width:"100%"}}>
@@ -86,7 +66,6 @@ export default function AdminSide({in:inProp}) {
                            
                         </ul>
                     </li>
-                    </CSSTransition>
                 }
                 
                 <li>

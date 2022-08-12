@@ -7,12 +7,19 @@ import "./dashboard.css"
 
 export default function Dashboard() {
   return (
-        <div className='dashboard'>
+        <div className='cloth'>
             <AdminSide/>
-            <div style={{flex:"5 1", paddingLeft:"30px"}}>
+            <div style={{flex:"6 1"}}>
                 <Topbar/>
+                <div style={{padding:"20px"}}>
                 <DashTop/>
-                <AdminChart/>
+                <div className='dashboard'>
+                  <AdminChart/>
+                  <div style={{flex:"1 1"}}>
+                    <AdminChart/>
+                  </div>
+                </div>
+                </div>
             </div>
         </div>
   )

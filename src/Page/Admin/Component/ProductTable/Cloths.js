@@ -150,7 +150,7 @@ export default function Cloths() {
                         {/* <td>{itm.images}</td> */}
                         <td style={{width:"270px"}}>{itm.description}</td>
                         <td>
-                            <Edit htmlColor="green" style={{fontSize:"20", cursor:"pointer",marginRight:"10px"}}/>
+                            <Link to={`/admin/product/editcloth/${itm.id}`}><Edit htmlColor="green" style={{fontSize:"20", cursor:"pointer",marginRight:"10px"}}/></Link>
                             <Delete htmlColor="red"  onClick={handleOpen} style={{fontSize:"20", cursor:"pointer",}}/>
                         </td>
                         <DeleteModal open={open} handleClose={handleClose} setOpen={setOpen} handleOpen={handleOpen} id={itm.id}/>

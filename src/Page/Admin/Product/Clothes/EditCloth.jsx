@@ -15,7 +15,7 @@ export default function EditCloth() {
     const {id} = useParams()
     const [product, setProduct] = useState([])
     const [singleProduct, setSingleProduct]= useState({})
-    const [name, setName] = useState(singleProduct?.name)
+    const [name, setName] = useState(product.filter((thisProject) => String(thisProject.id) === id)[0]?.name)
     const [price, setPrice] = useState("")
     const [discount, setDiscount] = useState("")
     const [quantity, setQuantity] = useState("")
@@ -26,7 +26,8 @@ export default function EditCloth() {
     const [images, setImages] = useState("")
     const [error, setError] = useState("")
     const [message, setMessage] = useState("")
-    console.log(name)
+          console.log(typeof(name))
+    
     const [state, setState] = useState({
         open: false,
         Transition: Fade,
@@ -60,8 +61,6 @@ export default function EditCloth() {
         const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_products")
         if(data){
           setProduct(data)
-          const filteredProject = data.filter((thisProject) => String(thisProject.id) === id)
-          setSingleProduct(filteredProject[0]) 
         }
       }
       Clothe()

@@ -1,35 +1,38 @@
-.signup{
+.adminsignin{
     width: 100vw;
-    height: calc(100vh - 90px);
+    height:100vh;
     display: flex;
     justify-content: center;
-    background-color: #fff;
+    
 }
-.signup input{
+.adminsignin input{
     padding-left: 40px;
     padding-top: 10px;
 }
-.signupForm{
-    margin-top: 20px;
-    width: 60%;
+.adminsigninForm{
+    background-color: #fff;
+    margin-top: 100px;
+    width: 50%;
+    height: 50%;
     display: flex;
     flex-direction: column;
+    padding: 20px;
 }
-.signupForm h4{
+.adminsigninForm h4{
     color: #e61601;
-    font-size: 20px;
-    text-align:start;
+    font-size: 25px;
+    text-align:center;
     text-transform: capitalize;
     margin-bottom: 30px;
 }
-.signupTop{
+.adminsigninTop{
     width: 100%;
     margin-bottom: 40px;
     display: flex;
     flex-wrap: wrap;
 
 }
-.signupTop input{
+.adminsigninTop input{
     flex: 1 1;
     border-bottom: 1px solid black;
     border-top: none;
@@ -40,40 +43,40 @@
 
 }
 
-.signupTop input:first-child{
+.adminsigninTop input:first-child{
     margin-right: 20px;
 
 }
-.signupTop input:focus{
+.adminsigninTop input:focus{
     outline: none;
 }
-.signupTop2{
+.adminsigninTop2{
     width: 100%;
     margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
-.signupTop2 input{
+.adminsigninTop2 input{
     padding: 7px;
     font-size: 15px;
     margin-right: 10px;
 }
-.signupTop2 input:checked{
+.adminsigninTop2 input:checked{
     background-color: #e61601;
 }
-.signupTop2 span{
+.adminsigninTop2 span{
     letter-spacing: 3px;
     font-size: 14px;
 }
-.signupTop2 a{
+.adminsigninTop2 a{
     letter-spacing: 3px;
     text-decoration: underline;
     margin-right: 5px;
     font-size: 14px;
     color: #e61601;
 }
-.signupTop2 button{
+.adminsigninTop2 button{
     width: 100%;
     padding: 10px;
     background-color: #e61601;
@@ -84,13 +87,13 @@
     transition: all 0.5s ease-in;
 
 }
-.signupTop2 button:hover{
+.adminsigninTop2 button:hover{
     background-color: #f73621;
 }
-.signupForm p{
+.adminsigninForm p{
     text-align: center;
 }
-.signupForm a{
+.adminsigninForm a{
     align-self: center;
     color: #e61601;
 

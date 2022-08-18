@@ -22,13 +22,15 @@ import CreateCloth from './Page/Admin/Product/Clothes/CreateCloth';
 import EditCloth from './Page/Admin/Product/Clothes/EditCloth';
 import SalesReport from './Page/Admin/SalesReport/SalesReport';
 import AdminLogin from './Page/Admin/SignIn/SignIn';
+import CreateCat from './Page/Admin/Product/Category/CreateCat';
+import ViewCat from './Page/Admin/Product/Category/ViewCat';
 
 function App() {
   const {dispatch} = useContext(AuthContext)
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"))
     if(user){
-      dispatch({type:LOGIN_SUCCESS, payload:user})
+      dispatch({type:"LOGIN_SUCCESS", payload:user})
     }
   }, [dispatch])
   
@@ -54,7 +56,9 @@ function App() {
         <Route path='/admin/login' exact element={<AdminLogin/>}/>
         <Route path='/admin/viewuser' exact element={<ViewUser/>}/>
         <Route path='/admin/product/view' exact element={<ViewCloth/>}/>
+        <Route path='/admin/category/view' exact element={<ViewCat/>}/>
         <Route path='/admin/product/create' exact element={<CreateCloth/>}/>
+        <Route path='/admin/category/create' exact element={<CreateCat/>}/>
         <Route path='/admin/product/editcloth/:id' exact element={<EditCloth/>}/>
         <Route path='/admin/sales' exact element={<SalesReport/>}/>
       </Routes>

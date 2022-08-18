@@ -63,6 +63,18 @@ export default function AdminSide() {
                                     <span className='detail'>View Products</span>
                                 </Link>
                             </li>
+                            <li>
+                                <Link to="/admin/category/create" style={{width:"100%"}}>
+                                    <PersonAdd htmlColor=" #636e72" style={{ fontSize: 17 }}/>
+                                    <span className='detail'>Add Category</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/admin/category/view" style={{width:"100%"}}>
+                                    <PersonAdd htmlColor=" #636e72" style={{ fontSize: 17 }}/>
+                                    <span className='detail'>View Category</span>
+                                </Link>
+                            </li>
                            
                         </ul>
                     </li>

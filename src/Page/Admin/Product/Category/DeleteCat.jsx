@@ -20,11 +20,10 @@ const style = {
 };
 
 
-function DeleteModal({open, handleClose,setOpen, id}) {
-    const deleteProduct = async() =>{
-        const deleted = await axios.delete(`https://ecommerces-api.herokuapp.com/api/v1/admin/delete_category/${id}`, {headers: {"Authorization": "Bearer " +localStorage.getItem("admintoken") }})
+function DeleteCat({open, handleClose,setOpen, id}) {
+    const deleteCat = async() =>{
+        const deleted = await axios.delete(`https://ecommerces-api.herokuapp.com/api/v1/admin/delete_category/${id}`, {headers: {"Authorization": "Bearer 41|kOxux51mqFmCChDku6VI85INKOsPGx000hmCdnpk" }})
         setOpen(false)
-        console.log(deleted)
     }
 
   return (
@@ -36,10 +35,10 @@ function DeleteModal({open, handleClose,setOpen, id}) {
         <Fade in={open}>
             <Box sx={style}>
                 <Typography id="transition-modal-title" variant="h6" component="h2">
-                    Are you sure you want to delete this Product
+                    Are you sure you want to delete this Category
                 </Typography>
                 <div style={{display:"flex", justifyContent:"space-around", marginTop:"10px"}}>
-                    <button onClick={()=> {deleteProduct()}} style={{backgroundColor:"red",cursor:"pointer",border:"none", padding:"10px 20px", fontSize:"16px", color:"white"}}>Yes</button>
+                    <button onClick={()=> {deleteCat()}} style={{backgroundColor:"red",cursor:"pointer",border:"none", padding:"10px 20px", fontSize:"16px", color:"white"}}>Yes</button>
                     <button onClick={handleClose}   style={{backgroundColor:"green",cursor:"pointer",border:"none", padding:"10px 20px", fontSize:"16px", color:"white"}}>No</button>
                 </div>
             </Box>
@@ -48,4 +47,4 @@ function DeleteModal({open, handleClose,setOpen, id}) {
   )
 }
 
-export default DeleteModal
+export default DeleteCat

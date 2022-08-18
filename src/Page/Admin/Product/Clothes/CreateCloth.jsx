@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import AdminSide from '../../Component/AdminSide/AdminSide'
 import Topbar from '../../Component/Topbar/Topbar'
@@ -9,6 +9,7 @@ import Snackbar from '@mui/material/Snackbar';
 import Fade from '@mui/material/Fade';
 import Slide from '@mui/material/Slide';
 import Grow from '@mui/material/Grow';
+import { SnackbarContent } from '@mui/material'
 
 
 // const Alert = React.forwardRef(function Alert(props, ref) {
@@ -24,6 +25,7 @@ function TransitionsSnackbar() {
 
 export default function CreateCloth() {
     const [name, setName] = useState("")
+    const [cat, setCat] = useState([])
     const [price, setPrice] = useState("")
     const [discount, setDiscount] = useState("")
     const [quantity, setQuantity] = useState("")
@@ -61,7 +63,13 @@ export default function CreateCloth() {
           open: false,
         });
       };
-
+      useEffect(()=>{
+        const Clothe = async() =>{
+          const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_category")
+          setCat(data.data)
+        }
+        Clothe()
+      },[])
     const submitData = async(e) =>{
         try {
             e.preventDefault()
@@ -77,7 +85,7 @@ export default function CreateCloth() {
             formData.append("description", description)
             const {data} = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/admin/add_product", formData, {headers: {"Authorization": "Bearer 41|kOxux51mqFmCChDku6VI85INKOsPGx000hmCdnpk" }})
             if(data){
-                // window.location.replace("/admin/product/view")
+                window.location.replace("/admin/product/view")
                 setError("")
                 setMessage(data.message)
                 console.log(data)
@@ -86,9 +94,10 @@ export default function CreateCloth() {
             
         } catch (error) {
             console.log(error)
-            setError(error.response.data.errors)
+            setError(error.response.data.message ? error.response.data.message : error.response.message)
+            setMessage("")
         }
-       
+       console.log(error)
     }
   return (
     <div className='cloth'>
@@ -109,7 +118,14 @@ export default function CreateCloth() {
                             <div className="userFormRight">
                                 <input type="file" className="custom-file-input" onChange={(e)=>{setAvater(e.target.files[0])}} />
                                 <input type="file" className="custom-file-input"  onChange={(e)=>{setImages(e.target.files[0])}}/>
-                                 <input type="text" placeholder="Enter the Item Category " value={category} name="category" onChange={(e)=>setCategory(e.target.value)} required/>
+                                 <select value={category} onChange={(e)=>{setCategory(e.target.value)}}>
+                                  {
+                                    cat?.map((itm, index)=>(
+                                      <option value={itm.name} key={index}>{itm.name}</option>
+                                    ))
+                                  }
+                                    
+                                 </select>
                                  <input type="text" placeholder="Enter the Item Available Quantity " value={status} name="status" onChange={(e)=>setStatus(e.target.value)} required/>
                             </div>
                         </div>
@@ -122,21 +138,32 @@ export default function CreateCloth() {
                                         open={state.open}
                                         onClose={handleClose}
                                         TransitionComponent={state.Transition}
-                                        message="I love snacks"
                                         key={state.Transition.name}
                                         
-                                    />
+                                        anchorOrigin={{vertical: "top", horizontal: "right" }}
+                                        autoHideDuration = {3000}
+                                       >
+                                        <SnackbarContent style={{backgroundColor:'red', color:"white"}}
+                                          message={error}
+                                        />
+                                       </Snackbar>
                                 }
                        
                                 {
                                     message &&
                                     <Snackbar
-                                        open={state.open}
-                                        onClose={handleClose}
-                                        TransitionComponent={state.Transition}
-                                        message={message}
-                                        key={state.Transition.name}
+                                    open={state.open}
+                                    onClose={handleClose}
+                                    TransitionComponent={state.Transition}
+                                    key={state.Transition.name}
+                                    
+                                    anchorOrigin={{vertical: "top", horizontal: "right" }}
+                                    autoHideDuration = {3000}
+                                   >
+                                    <SnackbarContent style={{backgroundColor:'green', color:"white"}}
+                                      message={error}
                                     />
+                                   </Snackbar>
                                     
                                 }
                     </form>

@@ -1,15 +1,13 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import AdminSide from '../../Component/AdminSide/AdminSide'
-import Cloths from '../../Component/ProductTable/Cloths'
-
+import Categry from '../../Component/ProductTable/Category'
 import Topbar from '../../Component/Topbar/Topbar'
-import "./cloth.css"
+// import "./cloth.css"
 
 
 
-export default function ViewCloth() {
-    
+export default function ViewCat() {
     return (
         <div className='cloth'>
             <AdminSide/>
@@ -17,8 +15,8 @@ export default function ViewCloth() {
                 <Topbar/> 
                 <div >
                     <div className="clothWrapper">
-                        <Cloths/>
-                    </div> 
+                        <Categry/>
+                    </div>
                 </div>
             </div>
         </div>

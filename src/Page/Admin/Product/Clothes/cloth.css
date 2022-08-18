@@ -179,7 +179,16 @@
     padding: 10px;
     font-size: 14px;
 }
-.userFormLeft input:focus, .userFormRight input:focus{
+.userFormRight select{
+    border-bottom: 1px solid black;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 14px;
+}
+.userFormLeft input:focus, .userFormRight input:focus, .userFormRight select:focus{
     outline: none;
 }
 .userFormRight{
@@ -238,6 +247,9 @@
     text-align: center;
     margin-left: 20px;
     margin-bottom: 20px;
+}
+.userCreate:disabled{
+    cursor: not-allowed;
 }
 .userCreate:hover{
     background-color: rgb(9, 156, 9);

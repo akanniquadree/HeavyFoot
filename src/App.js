@@ -39,12 +39,12 @@ function App() {
      <BrowserRouter>
       <Routes>
         <Route path='/' exact element={<Home/>}/>
-        <Route path='/products' exact element={<Product/>}/>
+        <Route path='/shop/:name' element={<Product/>}/>
         <Route path='/cart' exact element={<Cart/>}/>
         <Route path='/shipping' exact element={<ShippingAddress/>}/>
         <Route path='/checkout' exact element={<CheckOut/>}/>
         <Route path='/payment' exact element={<Payment/>}/>
-        <Route path='/product' exact element={<SingleProduct/>}/>
+        <Route path='/product/:id' exact element={<SingleProduct/>}/>
         <Route path='/reciept' exact element={<Reciept/>}/>
         <Route path='/signup' exact element={<Signup/>}/>
         <Route path='/login' exact element={<SignIn/>}/>

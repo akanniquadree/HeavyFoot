@@ -10,6 +10,9 @@ export const LOGIN_FAILURE = (error) =>({
     type: "LOGIN_FAILURE",
     payload:error
 })
+export const CLEAR = () =>({
+    type: "CLEAR"
+})
 
 export const ADMIN_LOGIN_START =(userCredentials)=> ({
     type:"ADMIN_LOGIN_START"

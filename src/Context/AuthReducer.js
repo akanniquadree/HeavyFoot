@@ -6,22 +6,25 @@ export const reducer = (state, action) =>{
             return {
                 isFetching:true,
                 user:null,
-                admin: null,
                 error:null
             };
         case "LOGIN_SUCCESS":
             return {
                 isFetching:false,
                 user:action.payload,
-                admin: null,
                 error:false
             };
         case "LOGIN_FAILURE":
             return {
                 isFetching:false,
                 user:null,
-                admin: null,
                 error:action.payload
+            }
+        case "CLEAR":
+            return {
+                isFetching:false,
+                user:null,
+                error:null
             }
             
     

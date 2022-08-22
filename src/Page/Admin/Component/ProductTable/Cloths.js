@@ -2,11 +2,10 @@ import React, {useEffect, useState} from 'react'
 import TablePagination from '@mui/material/TablePagination';
 import { ArrowDownward, ArrowUpward, Delete, Edit, MoreVert, Search } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
-import { Menu, MenuItem } from '@material-ui/core'
 // import { data } from '../Data'
 import "../../Product/Clothes/cloth.css"
 import axios from "axios"
-import DeleteModal from '../../Product/Clothes/DeleteModal';
+import DeleteProductModal from '../../Product/Clothes/DeleteProductModal';
 
 export default function Cloths() {
     const [open, setOpen] = useState(false);
@@ -27,8 +26,11 @@ export default function Cloths() {
         setProduct(data)
       }
       Clothe()
-    },[product])
-
+    },[])
+    function changeProduct(e){
+      setProduct(e);
+      console.log(product)
+    }
     const SearchParams = (rows) =>{
         const columns = rows[0] && Object.keys(rows[0])
       return rows.filter((row)=>columns.some((column)=>row[column].toString().toLowerCase().indexOf(search.toLowerCase())>-1))
@@ -135,7 +137,7 @@ export default function Cloths() {
         </thead>
         <tbody>
             {
-              SearchParams(currentPosts).map((itm, index)=>(
+              SearchParams(currentPosts)?.sort(function(a, b){return b - a}).map((itm, index)=>(
                     <tr className='trHover' key={index}>
                         <td style={{width:"40px"}}>{itm.id}</td>
                         <td>{itm.name}</td>
@@ -153,7 +155,7 @@ export default function Cloths() {
                             <Link to={`/admin/product/editcloth/${itm.id}`}><Edit htmlColor="green" style={{fontSize:"20", cursor:"pointer",marginRight:"10px"}}/></Link>
                             <Delete htmlColor="red"  onClick={handleOpen} style={{fontSize:"20", cursor:"pointer",}}/>
                         </td>
-                        <DeleteModal open={open} handleClose={handleClose} setOpen={setOpen} handleOpen={handleOpen} id={itm.id}/>
+                        <DeleteProductModal change={changeProduct} product={product} open={open} handleClose={handleClose} setOpen={setOpen} handleOpen={handleOpen} id={itm.id}/>
                 </tr>
                 ))
             }

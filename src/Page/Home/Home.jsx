@@ -18,9 +18,10 @@ export default function Home() {
     <>
     <Topbar/>
      <div className="home">
-      <Sidebar/>
+     <div className='homeSlider'>
       <Slider slides={SliderData}/>
       <Promotion/>
+      </div>
     </div>
      <Flash/>
     <TopSales/>

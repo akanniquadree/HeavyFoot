@@ -22,9 +22,9 @@ export const register = async(cred, dispatch) =>{
 export const Login = async(cred, dispatch) =>{
     try {
         dispatch({type:"LOGIN_START"})
-        const {data} = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/login", cred)
+        const {data} = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/public/login", cred)
         if(data){
-            // window.location.replace("/")
+            window.location.replace("/")
             dispatch({type:"LOGIN_SUCCESS", payload:data.user})
             localStorage.setItem("user", JSON.stringify(data.user))
             localStorage.setItem("token", data.token)

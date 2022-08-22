@@ -7,11 +7,15 @@ import { Menu, MenuItem } from '@material-ui/core'
 import "../../Product/Clothes/cloth.css"
 import axios from "axios"
 import DeleteModal from '../../Product/Clothes/DeleteModal';
+import EditCatModal from '../../Product/Category/EditCategory';
 
 export default function Categry() {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [openCat, setOpenCat] = useState(false);
+    const handleOpenCat = () => setOpenCat(true);
+    const handleCloseCat = () => setOpenCat(false);
     const [product, setProduct] = useState([])
     const [search, setSearch] = useState("")
     const [asc, setAsc] = useState(false)
@@ -19,15 +23,15 @@ export default function Categry() {
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const indexOfLastPage = page * rowsPerPage
     const indexOfFirstPage = indexOfLastPage + rowsPerPage
-    const currentPosts = product.slice(indexOfLastPage, indexOfFirstPage)
+    const currentPosts = product?.slice(indexOfLastPage, indexOfFirstPage)
     useEffect(()=>{
       const Clothe = async() =>{
         const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_category")
         setProduct(data.data)
       }
       Clothe()
-    },[product])
-
+    },[])
+  
     const SearchParams = (rows) =>{
         const columns = rows[0] && Object.keys(rows[0])
       return rows.filter((row)=>columns.some((column)=>row[column].toString().toLowerCase().indexOf(search.toLowerCase())>-1))
@@ -85,18 +89,23 @@ export default function Categry() {
         </thead>
         <tbody>
             {
-              SearchParams(currentPosts).map((itm, index)=>(
+              SearchParams(currentPosts).map((itm, index)=>{
+                return(
                     <tr className='trHover' key={index}>
                         <td style={{width:"40px"}}>{itm.id}</td>
                         <td>{itm.name}</td>
-                        <td></td>
                         <td>
-                            <Link to={``}><Edit htmlColor="green" style={{fontSize:"20", cursor:"pointer",marginRight:"10px"}}/></Link>
+                        <DeleteModal   open={open} handleClose={handleClose} setOpen={setOpen} handleOpen={handleOpen} id={itm.id}/>
+                        <EditCatModal   open={openCat} handleClose={handleCloseCat} setOpen={setOpenCat} handleOpen={handleOpenCat} id={itm.id} oldName={itm}/>
+                        </td>
+                        <td>
+                            <Edit onClick={handleOpenCat} htmlColor="green" style={{fontSize:"20", cursor:"pointer",marginRight:"10px"}}/>
                             <Delete htmlColor="red"  onClick={handleOpen} style={{fontSize:"20", cursor:"pointer",}}/>
                         </td>
-                        <DeleteModal open={open} handleClose={handleClose} setOpen={setOpen} handleOpen={handleOpen} id={itm.id}/>
-                </tr>
-                ))
+                    </tr>
+              ) 
+                    
+              })
             }
             {
               emptyTable > 0 && (

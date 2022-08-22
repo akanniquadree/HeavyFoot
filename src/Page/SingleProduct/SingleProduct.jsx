@@ -13,7 +13,6 @@ export default function SingleProduct() {
       <Topbar/>
         <div className="singleProduct">
             <div className="singleProductTop">
-                <Sidebar/>
                 <TopDisplay/>
             </div>
             <TopSales/>

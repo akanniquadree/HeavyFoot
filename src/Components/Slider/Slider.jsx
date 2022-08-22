@@ -1,47 +1,47 @@
 import "./slider.css"
 import React, { useRef,useState, useEffect }  from 'react'
-import M from "materialize-css"
 import { ArrowLeft, ArrowRight } from "@material-ui/icons"
+import { SliderData } from "./SliderData"
 
 
 
 
 export default function Slider({slides}) {
-    const [current, setCurrent] = useState(1)
-    const length = slides.length
+    const [slideIndex, setSlideIndex] = useState(1)
     const timeout = useRef(null)
     const nextSlide = () =>{
       if(timeout.current){
         clearTimeout(timeout.current)
       }
-      if(current !== length){
-        setCurrent(current + 1)
-      }else if(current === length){
-        setCurrent(1)
+      if(slideIndex !== SliderData.length){
+        setSlideIndex(slideIndex + 1)
+      }else if(slideIndex === SliderData.length){
+        setSlideIndex(1)
       }
     }
     const prevSlide = () =>{
       if(timeout.current){
         clearTimeout(timeout.current)
       }
-      if(current !== 1){
-        setCurrent(current - 1)
-      }else if(current === 1){
-        setCurrent(length)
+      if(slideIndex !== 1){
+        setSlideIndex(slideIndex - 1)
+      }else if(slideIndex === 1){
+        setSlideIndex(SliderData.length)
       }
+
     }
     const moveDot = (index) =>{
       if(timeout.current){
         clearTimeout(timeout.current)
       }
-      setCurrent(index)
+      setSlideIndex(index)
     }
     useEffect(()=>{
       const nextSlide = () =>{
-        if(current !== length){
-          setCurrent(current + 1)
-        }else if(current === length){
-          setCurrent(1)
+        if(slideIndex !== SliderData.length){
+          setSlideIndex(slideIndex + 1)
+        }else if(slideIndex === SliderData.length){
+          setSlideIndex(1)
         }
       }
       timeout.current = setTimeout(nextSlide, 3000)
@@ -51,26 +51,27 @@ export default function Slider({slides}) {
         }
       }
       
-    },[current, length])
+    },[slideIndex])
     
   return (
     <div className="slider">
         <div className="sliderWrapper">
             {
               slides.map((item, index)=>(
-                  <div className={current === index + 1 ? "carousel active-anim": "carousel"}key={index}>
+                  <div className={slideIndex === index + 1 ? "slide active-anim" : "slide"}key={index}>
     
                         <img src={item.image} alt="" />
+                      
 
                   </div>
               
               ))
             }
-            <ArrowLeft className="Arrow" onClick={prevSlide}/>
-            <ArrowRight className="Arrow" style={{marginLeft:"50px"}} onClick={nextSlide}/>
+            <ArrowLeft  className="back " htmlColor="white" onClick={prevSlide}/>
+            <ArrowRight className="back next" htmlColor="white" onClick={nextSlide}/>
             <div className="contDot">
-              {Array.from({length:length}).map((item, index)=>(
-                <div className={ current === index +1 ? "dots sliactive": "dots"} onClick={()=>{moveDot(index + 1)}}></div>
+              {Array.from({length:SliderData.length}).map((item, index)=>(
+                <div className={ slideIndex === index +1 ? "dots sliactive": "dots"} onClick={()=>{moveDot(index + 1)}}></div>
               ))}
             </div>
         </div>

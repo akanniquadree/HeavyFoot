@@ -1,5 +1,5 @@
 
-export const SliderData = [
+export const SliderData = ([
     {
         image:"/Images/caro.jpg"
     },
@@ -12,4 +12,4 @@ export const SliderData = [
     {
         image:"/Images/caro3.jpg"
     },
-]
+])

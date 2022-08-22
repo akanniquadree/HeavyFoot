@@ -28,6 +28,7 @@
     font-size: 17px;
     color: white;
     font-weight: 700 ;
+    
 }
 .TopSalesTop h6{
     font-size: 13px;
@@ -91,6 +92,10 @@
     font-size: 15px;
     font-weight: 500;
     color: black !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width:150px;
 
 }
 .TopSalesBottomCard >div{

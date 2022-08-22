@@ -5,16 +5,25 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { useState, useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios"
 
 
 function Topbar() {
+  const [cat, setCat] = useState([]);
+  const [cart, setCart] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [help, setHelp] = useState(null);
+  const [shop, setShop] = useState(null);
   const open = Boolean(anchorEl);
   const openHelp = Boolean(help);
-  const {user} = useContext(AuthContext)
+  const openShop = Boolean(shop);
+  const {user, dispatch} = useContext(AuthContext)
   const accountClick = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+  const ShopClick = (event) => {
+    setShop(event.currentTarget);
   };
   const helpClick = (event) => {
     setHelp(event.currentTarget);
@@ -22,9 +31,34 @@ function Topbar() {
   const accountClose = () => {
     setAnchorEl(null);
   }; 
+  const ShopClose = () => {
+    setShop(null);
+  }; 
   const helpClose = () => {
     setHelp(null);
-  }; 
+  };
+  useEffect(()=>{
+    const Category = async() =>{
+      const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_category")
+      setCat(data.data)
+    }
+    const CART = async() =>{
+      const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/user/get_all_cart",{headers:{"Authorization":"Bearer " +localStorage.getItem("token")}})
+      setCart(data.data)
+    }
+    CART()
+    Category()
+  },[cart])
+  const logOut = async() =>{
+    const formData = new FormData()
+    const clear = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/user/logout",formData,{headers:{"Authorization":"Bearer " +localStorage.getItem("token")}})
+    if(clear){
+      setAnchorEl(null);
+      dispatch({type:"clear"})
+      localStorage.clear()
+      window.location.replace("/login")
+    }
+  }
   return (
     <div className="topbarContainer">
         <div className="topbarWrapper">
@@ -54,6 +88,17 @@ function Topbar() {
                 </div>
                 <div className="topbarLeftInfo" 
                   id="basic-button"
+                  aria-controls={openShop ? 'basic-menu' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={openShop ? 'true' : undefined}
+                  onClick={ShopClick}
+                >
+                   <Person htmlColor="black"/>
+                   <span>Shop</span> 
+                   <ArrowDropDown htmlColor="black"/>
+                </div>
+                <div className="topbarLeftInfo" 
+                  id="basic-button"
                   aria-controls={openHelp ? 'basic-menu' : undefined}
                   aria-haspopup="true"
                   aria-expanded={openHelp ? 'true' : undefined}
@@ -62,10 +107,13 @@ function Topbar() {
                    <span>Help</span> 
                    <ArrowDropDown htmlColor="black"/>
                 </div>
-                <div className="topbarLeftInfo">
-                   <ShoppingCart htmlColor="black"/>
-                   <span>Cart</span> 
-                </div>
+                <Link to="/cart" style={{color:"black"}} className="topbarLeftInfo">
+                    <ShoppingCart htmlColor="black"/>
+                    <span>Cart</span> 
+                    <div className="absolute">
+                      <span>{cart  ? cart.length : 0}</span>
+                    </div> 
+                </Link>
                 <div className="">
                    {/* <Menu htmlColor="black" size="20" className="hidden"/> */}
                 </div>
@@ -86,13 +134,21 @@ function Topbar() {
         {
           user ?
           <div>
+            <Link to=""  style={{color:"black"}}>
               <MenuItem onClick={accountClose}>My Profile</MenuItem>
-              <MenuItem onClick={accountClose}>Log out</MenuItem>
+            </Link>
+              
+              <MenuItem onClick={logOut} style={{cursor:"pointer"}}>Log out</MenuItem>
+         
           </div>
           :
           <div>
+            <Link to="/login"  style={{color:"black"}}>
               <MenuItem onClick={accountClose}>Log In </MenuItem>
+            </Link>
+            <Link to="/signup"  style={{color:"black"}}>
               <MenuItem onClick={accountClose}>Sign Up </MenuItem>
+            </Link>
           </div>
         }
         
@@ -112,6 +168,20 @@ function Topbar() {
         <MenuItem onClick={helpClose}>Return and Funds</MenuItem>
         <MenuItem onClick={helpClose}>Other Cancellation</MenuItem>
        
+      </Menu>
+        <Menu
+        id="basic-menu"
+        anchorEl={shop}
+        open={openShop}
+        onClose={ShopClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >{
+        cat?.map((itm, index)=>(
+         <Link to={`/shop/${itm.name}`} style={{color:"black"}} key={index}><MenuItem onClick={ShopClose} key={index}>{itm.name}</MenuItem></Link>
+        ))
+      }
       </Menu>
     </div>
   )

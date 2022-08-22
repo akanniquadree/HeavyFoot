@@ -77,6 +77,23 @@
     margin-right: 10px;
     cursor: pointer;
     padding: 2px;
+    position: relative;
+}
+.absolute{
+    position:absolute;
+    width:15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    top: 0;
+    left:1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.absolute span{
+    color: #fff !important;
+    font-size: 10px !important;
 }
 .topbarLeftInfo span{
     color: black;

@@ -1,9 +1,57 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import MiddleDisplay from './MiddleDisplay'
 import "./singleProductDisplay.css"
+import axios from "axios"
+import CircularProgress from '@mui/material/CircularProgress';
+import Snackbar from '@mui/material/Snackbar';
+import Fade from '@mui/material/Fade';
+import Slide from '@mui/material/Slide';
+import { SnackbarContent } from '@mui/material'
 
 
 export default function TopDisplay() {
+    const {id} = useParams()
+    const [product, setProduct]=useState([])
+    const [singleProduct, setSingleProduct]=useState([])
+    const [quantity, setQuantity] = useState(1)
+    const [error, setError] = useState("")
+    const [message, setMessage] = useState("")
+    const [state, setState] = useState({open: false,Transition: Fade});
+    const [disable, setDisable] = useState(false)
+    
+
+    useEffect(()=>{
+        const Clothe = async(id) =>{
+            const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_products")
+            setProduct(data)
+          }
+          Clothe()
+    })
+    const addToCart = async({id,name, price,img}) =>{
+            // setState({open: true,Transition,});
+            // setError("")
+            // setMessage("")
+        try{    
+            const {data} = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/user/add_to_cart",{product_id:id,product_name:name,product_price:price,product_image:img,quantity,product_image_url:img},{headers:{"Authorization":"Bearer " +localStorage.getItem("token")}})
+            setDisable(true)
+            if(data){
+                console.log(data)
+                setError("")
+                setMessage(data.message)
+                console.log(data)
+                setDisable(false)
+                window.location.replace("/cart")
+            }
+        }catch(error){
+            console.log(error)
+            setError(error.response.data.message)
+            setDisable(false)
+        }
+    }
+   
+
+
   return (
     <div className="topDisplay">
         <div className="topDisplayWrapper">
@@ -11,32 +59,34 @@ export default function TopDisplay() {
 
             </div>
             <div className="topDisplayRight">
-                <div className="topDisplayRIghtWrapper">
-                    <h4>Apple Phone Xr</h4>
-                    <span>$50,000</span>
-                    <p>$70,000</p>
-                    <div className="topDisplayAvail">
-                        <span>Item code: #668690279338</span>
-                        <p>Availability: <b>In Stock</b></p>
-                    </div>
+                <div className="topDisplayRIghtWrapper">{
+                    product.filter((item)=> String(item.id) === id)?.map((itm, index)=>(
+                        <React.Fragment key={index}>
+                        <h4>{itm.name}</h4>
+                        <span>{itm.discount}</span>
+                        <p>{itm.price}</p>
+                        <div className="topDisplayAvail">
+                            <span>Initial Stock Amount: {itm.quantity}</span>
+                            <p>Stock Remaining:  {itm.status}</p>
+                        </div>
+                        <div className="topDisplayAvail">
+                            <span>Item code: #{itm.id}</span>
+                            <p>Availability:  {itm.status > 1 ? <b>In Stock</b> : <b>Out of Stock</b>}</p>
+                        </div>
                     <p>
-                    Meet the iPhone X - the device that’s
-                    so smart that it responds to a tap, 
-                    your voice, and even a glance. Elegantly 
-                    designed with a large 14.73 cm (5.8) Super 
-                    Retina screen and a durable front-and-back 
-                    glass, this smartphone is designed to impress 
-                    you can charge this iPhone wirelessly.
+                   {
+                    itm.description
+                   }
                     </p>
                     <h5>Available Option:</h5>
                     <div className="QtyWrapper">
                         <div className="qty">
                             <p className="float-left">Qty:</p>
-                            <input type="number" min="01" step="1" max="10" value="1" name="num"/>
+                            <input type="number" min="01"  max={itm.status} value={quantity} onChange={(e)=>setQuantity(e.target.value)}/>
                         </div>
                         <div className="size">
-                            <p class="float-left">Size:</p>
-                            <select class="">
+                            <p className="float-left">Size:</p>
+                            <select className="">
                                 <option value="x">X</option>
                                 <option value="s">S</option>
                                 <option value="xl">XL</option>
@@ -46,9 +96,12 @@ export default function TopDisplay() {
                     </div>
                     <hr/>
                   
-                    <button className='addbtn' >Add To Cart</button>  
-    
-                    
+                    <button className='addbtn' disabled={disable} onClick={()=>{addToCart({id:itm.id, name:itm.name, price:itm.discount,img:itm.avater })}}>{disable ?<CircularProgress thickness={4.0} sx={{color:"white"}} size="13px"/>:"Add To Cart"}</button> 
+                     <p style={{margin:"0", padding:"0", color:"red"}}>{error}</p>
+                     </React.Fragment>
+                    ))
+                }   
+                              
                 </div>
             </div>
         </div>

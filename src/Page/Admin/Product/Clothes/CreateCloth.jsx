@@ -9,12 +9,12 @@ import Snackbar from '@mui/material/Snackbar';
 import Fade from '@mui/material/Fade';
 import Slide from '@mui/material/Slide';
 import Grow from '@mui/material/Grow';
-import { SnackbarContent } from '@mui/material'
+import { CircularProgress, SnackbarContent } from '@mui/material'
 
 
 // const Alert = React.forwardRef(function Alert(props, ref) {
 //     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-//   });
+//    n});
 
 
 
@@ -36,6 +36,7 @@ export default function CreateCloth() {
     const [images, setImages] = useState("")
     const [error, setError] = useState("")
     const [message, setMessage] = useState("")
+    const [disable, setDisable] = useState(false)
     const [state, setState] = useState({
         open: false,
         Transition: Fade,
@@ -55,6 +56,8 @@ export default function CreateCloth() {
           open: true,
           Transition,
         });
+        setError("")
+        setMessage("")
       };
     
       const handleClose = () => {
@@ -83,12 +86,14 @@ export default function CreateCloth() {
             formData.append("discount", discount)
             formData.append("status", status)
             formData.append("description", description)
+            setDisable(true)
             const {data} = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/admin/add_product", formData, {headers: {"Authorization": "Bearer 41|kOxux51mqFmCChDku6VI85INKOsPGx000hmCdnpk" }})
             if(data){
                 window.location.replace("/admin/product/view")
                 setError("")
                 setMessage(data.message)
                 console.log(data)
+                setDisable(false)
             }
             
             
@@ -96,6 +101,7 @@ export default function CreateCloth() {
             console.log(error)
             setError(error.response.data.message ? error.response.data.message : error.response.message)
             setMessage("")
+            setDisable(false)
         }
        console.log(error)
     }
@@ -116,12 +122,14 @@ export default function CreateCloth() {
                                
                             </div>
                             <div className="userFormRight">
-                                <input type="file" className="custom-file-input" onChange={(e)=>{setAvater(e.target.files[0])}} />
+                                <input type="file" className="custom-file-input" onChange={(e)=>{setAvater(e.target.files[0])}} required/>
                                 <input type="file" className="custom-file-input"  onChange={(e)=>{setImages(e.target.files[0])}}/>
-                                 <select value={category} onChange={(e)=>{setCategory(e.target.value)}}>
+                                 <select value={category} onChange={(e)=>{setCategory(e.target.value)}} required>
+                                 <option value="">Choose A Category</option>
                                   {
                                     cat?.map((itm, index)=>(
-                                      <option value={itm.name} key={index}>{itm.name}</option>
+                                      
+                                        <option value={itm.name} key={index}>{itm.name}</option>
                                     ))
                                   }
                                     
@@ -130,7 +138,7 @@ export default function CreateCloth() {
                             </div>
                         </div>
                         <textarea rows={10} placeholder='Enter the product Information' required value={description} onChange={(e)=>setDescription(e.target.value)}></textarea>
-                        <button type='submit' className="userCreate" onClick={handleClick(SlideTransition)}>Create Product</button>
+                        <button type='submit' disabled={disable} className="userCreate" onClick={handleClick(SlideTransition)}>{disable ? <CircularProgress thickness={4.5} sx={{color:"white"}} size="13px"/> : "Create Product"}</button>
                         
                                 {
                                     error &&
@@ -161,7 +169,7 @@ export default function CreateCloth() {
                                     autoHideDuration = {3000}
                                    >
                                     <SnackbarContent style={{backgroundColor:'green', color:"white"}}
-                                      message={error}
+                                      message={message}
                                     />
                                    </Snackbar>
                                     

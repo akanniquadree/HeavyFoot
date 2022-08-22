@@ -1,13 +1,12 @@
 .topDisplay{
-    flex: 5;
     display: flex;
+    width: 100%;
     flex-wrap: wrap;
     flex-direction: column;
     -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
     background-color: #fff;
     border-radius: 15px;
-    margin-right: 8%;
 }
 .topDisplayWrapper{
     display: flex;

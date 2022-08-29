@@ -71,7 +71,7 @@ export default function Slider({slides}) {
             <ArrowRight className="back next" htmlColor="white" onClick={nextSlide}/>
             <div className="contDot">
               {Array.from({length:SliderData.length}).map((item, index)=>(
-                <div className={ slideIndex === index +1 ? "dots sliactive": "dots"} onClick={()=>{moveDot(index + 1)}}></div>
+                <div className={ slideIndex === index +1 ? "dots sliactive": "dots"} onClick={()=>{moveDot(index + 1)}} key={index}></div>
               ))}
             </div>
         </div>

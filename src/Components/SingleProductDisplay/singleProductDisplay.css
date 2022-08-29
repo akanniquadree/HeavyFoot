@@ -126,6 +126,10 @@
         border:none;
         margin-bottom: 5px;
         width: 97%;
+        cursor: pointer;
+}
+.addbtn:disabled{
+        cursor: not-allowed;
 }
 
 

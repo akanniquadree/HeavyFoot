@@ -43,8 +43,11 @@ function Topbar() {
       setCat(data.data)
     }
     const CART = async() =>{
-      const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/user/get_all_cart",{headers:{"Authorization":"Bearer " +localStorage.getItem("token")}})
-      setCart(data.data)
+      if(user){
+        const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/user/get_all_cart",{headers:{"Authorization":"Bearer " +localStorage.getItem("token")}})
+        setCart(data.data)
+      }
+      
     }
     CART()
     Category()

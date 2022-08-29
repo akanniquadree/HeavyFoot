@@ -2,12 +2,12 @@ import axios from "axios"
 
 
 
-export const register = async(cred, dispatch) =>{
+export const register = async(cred, dispatch, redirect) =>{
     try {
         dispatch({type:"LOGIN_START"})
         const {data} = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/public/register", cred)
         if(data){
-            window.location.replace("/")
+            window.location.replace(redirect)
             dispatch({type:"LOGIN_SUCCESS", payload:data.user})
             localStorage.setItem("user", JSON.stringify(data.user))
             localStorage.setItem("token", data.token)
@@ -19,12 +19,11 @@ export const register = async(cred, dispatch) =>{
 }
 
 
-export const Login = async(cred, dispatch) =>{
+export const Login = async(cred, dispatch, redirect) =>{
     try {
         dispatch({type:"LOGIN_START"})
         const {data} = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/public/login", cred)
         if(data){
-            window.location.replace("/")
             dispatch({type:"LOGIN_SUCCESS", payload:data.user})
             localStorage.setItem("user", JSON.stringify(data.user))
             localStorage.setItem("token", data.token)

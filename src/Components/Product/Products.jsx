@@ -4,6 +4,8 @@ import Sidebar from '../Sidebar/Sidebar'
 import axios from "axios"
 import { Link, useParams } from 'react-router-dom'
 import { CircularProgress } from '@mui/material'
+import { useContext } from 'react'
+import { AuthContext } from '../../Context/AuthContext'
 
 export default function Products() {
   const [product, setProduct] = useState([])
@@ -12,6 +14,7 @@ export default function Products() {
   const[disable, setDisable] = useState(false)
   const[error, setError] = useState("")
   const[message, setMessage] = useState("")
+  const {user} = useContext(AuthContext)
   useEffect(()=>{
     const Clothe = async() =>{
       const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_products")
@@ -20,24 +23,25 @@ export default function Products() {
     Clothe()
   },[name])
   const addToCart = async({id,name, price,img}) =>{
-    // setState({open: true,Transition,});
-    // setError("")
-    // setMessage("")
-try{    
-    const {data} = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/user/add_to_cart",{product_id:id,product_name:name,product_price:price,product_image:img,quantity,product_image_url:img},{headers:{"Authorization":"Bearer " +localStorage.getItem("token")}})
-    setDisable(true)
-    if(data){
-        console.log(data)
-        setError("")
-        setMessage(data.message)
-        console.log(data)
+    if(user){
+    try{    
+        const {data} = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/user/add_to_cart",{product_id:id,product_name:name,product_price:price,product_image:img,quantity,product_image_url:img},{headers:{"Authorization":"Bearer " +localStorage.getItem("token")}})
+        setDisable(true)
+        if(data){
+            console.log(data)
+            setError("")
+            setMessage(data.message)
+            console.log(data)
+            setDisable(false)
+        }
+    }catch(error){
+        console.log(error)
+        setError(error.response.data.message)
         setDisable(false)
-    }
-}catch(error){
-    console.log(error)
-    setError(error.response.data.message)
-    setDisable(false)
-}
+    } 
+  }else{
+    window.location.replace(`/login?redirect=product/${id}`)
+  }
 }
   return (
     <div className="products">

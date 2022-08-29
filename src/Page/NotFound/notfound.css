@@ -1,0 +1,41 @@
+.notfoundWrapper{
+    width: 100vw;
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+.notfoundContainer{
+    width: 87%;
+    height: 100%;
+    display: flex;
+}
+.nofoundLeft{
+    flex: 1 1;
+    padding: 20px;
+    align-self: center;
+}
+.nofoundLeft h1{
+    margin: 10px 0 0px 0;
+    font-size: 70px;
+    font-weight: 800;
+}
+.nofoundLeft h3{
+    margin: 0px 0 10px 0;
+    font-size: 60px;
+    font-weight: 700;
+}
+.nofoundLeft p{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+.nofoundRight{
+    flex: 1 1;
+
+}
+.nofoundRight img{
+    width:100%;
+    height:100%;
+    object-fit:cover
+}

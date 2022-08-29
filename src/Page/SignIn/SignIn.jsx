@@ -1,4 +1,4 @@
-import React, { useState, useContext} from 'react'
+import React, { useState, useContext, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Login } from '../../ApiCall'
 import Footer from '../../Components/Footer/Footer'
@@ -6,13 +6,22 @@ import Topbar from '../../Components/Topbar/Topbar'
 import { AuthContext } from '../../Context/AuthContext'
 import "./signin.css"
 
-export default function SignIn() {
+export default function SignIn(props) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const {user, isFetching, error, dispatch} = useContext(AuthContext)
+  const redirect = window.location.search ? window.location.search.split("=")[1] : "/"
+  useEffect(()=>{
+    if(user){    
+      window.location.replace(redirect)
+    }
+    return () =>{
+      //
+    }
+  },[redirect, user])
   const loginHandle = (e) =>{
     e.preventDefault()
-    Login({email, password}, dispatch)
+    Login({email, password}, dispatch, redirect)
   }
   return (
     <>
@@ -31,7 +40,7 @@ export default function SignIn() {
                 </div>
                 <p>{error}</p>
                  <p>Dont Have an Account</p>
-                 <Link to="/signup">Create an Account</Link>
+                 <Link to={redirect === "/" ? "/signup" : "/signup?redirect=" +redirect}>Create an Account</Link>
             </form>
         </div>
         <Footer/>

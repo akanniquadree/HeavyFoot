@@ -1,6 +1,7 @@
 import { AddCircle, DeleteForever, RemoveCircle } from '@material-ui/icons'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Footer from '../../Components/Footer/Footer'
 import Topbar from '../../Components/Topbar/Topbar'
 import "./cart.css"
@@ -18,7 +19,7 @@ export default function Cart() {
             setProduct(data.data)
           }
           CART()
-    })
+    },[])
     const deleteCart = async(id) =>{
         const {data} = await axios.delete(`https://ecommerces-api.herokuapp.com/api/v1/user/delete_cart/${id}`,{headers:{"Authorization":"Bearer " +localStorage.getItem("token")}})
         if(data){
@@ -38,7 +39,11 @@ export default function Cart() {
                             <h5>Cart({product ? product.length: "empty"})</h5>
                         </div>
                         {
-                         product?.length < 1  ? <div>Cart is Empty</div> : product?.map((itm, index)=>(
+                         product?.length < 1  ? 
+                            <div style={{display:"flex",alignItems:"center",justifyContent:"center",height: "75%"}}>
+                                <h1 style={{fontSize:"20px"}}>Cart is Empty, Please <Link to="/" style={{color:"red"}}>Home Page</Link> to continue Shopping</h1>
+                            </div> 
+                         : product?.map((itm, index)=>(
                             <div className="cartLeftBottom" key={index}>
                                 <div className="cartLeftBottomRight">
                                     <img src="./Images/boxer.jpg" alt="" />

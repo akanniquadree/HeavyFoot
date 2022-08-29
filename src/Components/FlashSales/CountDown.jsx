@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
  const useCountDown = (targetDate) =>{
     const countDownDate = new Date(targetDate).getTime();
-    const [countDown, setCountDown] = useState(countDownDate - new Date().getTime())
+    const [countDown, setCountDown] = useState(countDownDate - Date.UTC(2022, 8, 24, 2))
 
     useEffect(()=>{
         const interval = setInterval(() => {

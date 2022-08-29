@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { Routes } from 'react-router-dom';
+import { Navigate, Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
@@ -24,15 +24,21 @@ import SalesReport from './Page/Admin/SalesReport/SalesReport';
 import AdminLogin from './Page/Admin/SignIn/SignIn';
 import CreateCat from './Page/Admin/Product/Category/CreateCat';
 import ViewCat from './Page/Admin/Product/Category/ViewCat';
+import NotFound from './Page/NotFound/NotFound';
 
 function App() {
-  const {dispatch} = useContext(AuthContext)
+  const {user, dispatch} = useContext(AuthContext)
+  const {admin, admindispatch} = useContext(AuthContext)
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"))
+    const admin = JSON.parse(localStorage.getItem("admin"))
     if(user){
       dispatch({type:"LOGIN_SUCCESS", payload:user})
     }
-  }, [dispatch])
+    if(admin){
+      admindispatch({type:"ADMIN_LOGIN_SUCCESS", payload:admin})
+    }
+  }, [admindispatch, dispatch])
   
   return (
     <div className="App">
@@ -41,26 +47,25 @@ function App() {
         <Route path='/' exact element={<Home/>}/>
         <Route path='/shop/:name' element={<Product/>}/>
         <Route path='/cart' exact element={<Cart/>}/>
-        <Route path='/shipping' exact element={<ShippingAddress/>}/>
-        <Route path='/checkout' exact element={<CheckOut/>}/>
-        <Route path='/payment' exact element={<Payment/>}/>
+        <Route path='/shipping' exact element={user ? <ShippingAddress/> : <NotFound/>}/>
+        <Route path='/checkout' exact element={user ? <CheckOut/> : <NotFound/>}/>
+        <Route path='/payment' exact element={user ? <Payment/> : <NotFound/>}/>
         <Route path='/product/:id' exact element={<SingleProduct/>}/>
-        <Route path='/reciept' exact element={<Reciept/>}/>
+        <Route path= '/reciept' exact element={user ? <Reciept/> : <NotFound/>}/>
         <Route path='/signup' exact element={<Signup/>}/>
         <Route path='/login' exact element={<SignIn/>}/>
+        <Route path="*" element={<NotFound/>}/>
 
 
-
-
-        <Route path='/admin' exact element={<Dashboard/>}/>
+        <Route path='/admin' exact element={admin ? <Dashboard/> : <NotFound/>}/>
         <Route path='/admin/login' exact element={<AdminLogin/>}/>
-        <Route path='/admin/viewuser' exact element={<ViewUser/>}/>
-        <Route path='/admin/product/view' exact element={<ViewCloth/>}/>
-        <Route path='/admin/category/view' exact element={<ViewCat/>}/>
-        <Route path='/admin/product/create' exact element={<CreateCloth/>}/>
-        <Route path='/admin/category/create' exact element={<CreateCat/>}/>
-        <Route path='/admin/product/editcloth/:id' exact element={<EditCloth/>}/>
-        <Route path='/admin/sales' exact element={<SalesReport/>}/>
+        <Route path='/admin/viewuser' exact element={admin ? <ViewUser/> : <NotFound/>}/>
+        <Route path='/admin/product/view' exact element={admin ? <ViewCloth/> : <NotFound/>}/>
+        <Route path='/admin/category/view' exact element={admin ? <ViewCat/> : <NotFound/>}/>
+        <Route path='/admin/product/create' exact element={admin ? <CreateCloth/> : <NotFound/>}/>
+        <Route path='/admin/category/create' exact element={admin ? <CreateCat/> : <NotFound/>}/>
+        <Route path='/admin/product/editcloth/:id' exact element={admin ? <EditCloth/> : <NotFound/>}/>
+        <Route path='/admin/sales' exact element={admin ? <SalesReport/> : <NotFound/>}/>
       </Routes>
      </BrowserRouter>
     </div>

@@ -11,72 +11,7 @@ export default function Flash() {
     <div className="flash">
         <div className="flashWrapper">
             <CountDownTimer targetDate={expire}/>
-            <div className="flashBottom">
-                <Link to="/product">
-                <div className="flashBottomCard">
-                    <img src="/Images/boxer.jpg" alt="" />
-                    <h5>Men Pant Boxers</h5>
-                    <div>$25 - $50</div>
-                    <p>1 item remaining</p>
-                    <button>Add to Cart</button>
-                </div>
-                </Link>
-                <Link to="/product">
-                <div className="flashBottomCard">
-                    <img src="/Images/boxer.jpg" alt="" />
-                    <h5>Men Pant Boxers</h5>
-                    <div>$25 - $50</div>
-                    <p>1 item remaining</p>
-                    <button>Add to Cart</button>
-                </div>
-                </Link>
-                <Link to="/product">
-                <div className="flashBottomCard">
-                    <img src="/Images/boxer.jpg" alt="" />
-                    <h5>Men Pant Boxers</h5>
-                    <div>$25 - $50</div>
-                    <p>1 item remaining</p>
-                    <button>Add to Cart</button>
-                </div>
-                </Link>
-                <Link to="/product">
-                <div className="flashBottomCard">
-                    <img src="/Images/boxer.jpg" alt="" />
-                    <h5>Men Pant Boxers</h5>
-                    <div>$25 - $50</div>
-                    <p>1 item remaining</p>
-                    <button>Add to Cart</button>
-                </div>
-                </Link>
-                <Link to="/product">
-                <div className="flashBottomCard">
-                    <img src="/Images/boxer.jpg" alt="" />
-                    <h5>Men Pant Boxers</h5>
-                    <div>$25 - $50</div>
-                    <p>1 item remaining</p>
-                    <button>Add to Cart</button>
-                </div>
-                </Link>
-                <Link to="/product">
-                <div className="flashBottomCard">
-                    <img src="/Images/boxer.jpg" alt="" />
-                    <h5>Men Pant Boxers</h5>
-                    <div>$25 - $50</div>
-                    <p>1 item remaining</p>
-                    <button>Add to Cart</button>
-                </div>
-                </Link>
-                <Link to="/product">
-                <div className="flashBottomCard">
-                    <img src="/Images/boxer.jpg" alt="" />
-                    <h5>Men Pant Boxers</h5>
-                    <div>$25 - $50</div>
-                    <p>1 item remaining</p>
-                    <button>Add to Cart</button>
-                </div>
-            </Link>
-            </div>
-            </div>
+        </div>
         
     </div>
   )

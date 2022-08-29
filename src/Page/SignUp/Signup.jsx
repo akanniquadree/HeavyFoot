@@ -15,9 +15,10 @@ export default function Signup() {
   const [password, setPassword] = useState("")
   const [password_confirmation, setPasswordConfirm] = useState("")
   const {isFetching, error, dispatch} = useContext(AuthContext)
+  const redirect = window.location.search ? window.location.search.split("=")[1] : "/"
   const RegisterHandle = (e) =>{
     e.preventDefault()
-    register({firstName,lastName, userName, email, phone, password,password_confirmation}, dispatch)
+    register({firstName,lastName, userName, email, phone, password,password_confirmation}, dispatch, redirect)
   }
   return (
     <>
@@ -49,7 +50,7 @@ export default function Signup() {
                 </div>
             
                  <p>Already Have an Account</p>
-                 <Link to="/login">LOGIN</Link>
+                 <Link to={redirect === "/" ? "/login" : "/login?redirect=" +redirect}>LOGIN</Link>
           
                 
             </form>

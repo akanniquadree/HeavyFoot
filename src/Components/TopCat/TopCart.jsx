@@ -1,7 +1,16 @@
 import "./topCart.css"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from "axios"
 
 export default function TopCart() {
+    const [cat, setCat] = useState([])
+    useEffect(()=>{
+        const category = async() =>{
+            const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_category")
+            setCat(data.data.reverse())
+        }
+        category()
+    },[])
   return (
     <div className="TopCart">
         <div className="TopCartWrapper">
@@ -9,34 +18,14 @@ export default function TopCart() {
             <h5>Top Category</h5>
         </div>
         <div className="TopCartBottom">
-            <div className="TopCartBottomCard">
-                <img src="/Images/caro3.jpg" alt="" />
-                <h5>Fashion</h5>
-            </div>
-            <div className="TopCartBottomCard">
-                <img src="/Images/caro3.jpg" alt="" />
-                <h5>Fashion</h5>
-            </div>
-            <div className="TopCartBottomCard">
-                <img src="/Images/caro3.jpg" alt="" />
-                <h5>Fashion</h5>
-            </div>
-            <div className="TopCartBottomCard">
-                <img src="/Images/caro3.jpg" alt="" />
-                <h5>Fashion</h5>
-            </div>
-            <div className="TopCartBottomCard">
-                <img src="/Images/caro3.jpg" alt="" />
-                <h5>Fashion</h5>
-            </div>
-            <div className="TopCartBottomCard">
-                <img src="/Images/caro3.jpg" alt="" />
-                <h5>Fashion</h5>
-            </div>
-            <div className="TopCartBottomCard">
-                <img src="/Images/caro3.jpg" alt="" />
-                <h5>Fashion</h5>
-            </div>
+            {
+                cat?.map((itm, index)=>(
+                    <div className="TopCartBottomCard" key={index}>
+                        <img src="/Images/caro3.jpg" alt="" />
+                        <h5>{itm.name}</h5>
+                    </div>
+                ))
+            }
             
         </div>
         </div>

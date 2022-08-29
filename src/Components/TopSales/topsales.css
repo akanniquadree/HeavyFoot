@@ -81,6 +81,9 @@
     border: none;
     cursor: pointer;
 }
+.TopSalesBottomCard:hover button:disabled{
+    cursor: not-allowed;
+}
 .TopSalesBottomCard img{
     width: 100px;
     height: 100px;
@@ -96,6 +99,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width:150px;
+    text-align: center;
 
 }
 .TopSalesBottomCard >div{

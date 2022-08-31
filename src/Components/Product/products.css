@@ -5,11 +5,11 @@
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .productsProduct{
-    flex: 6;
-    margin-right: 7%;
+    width:87%;
     background-color: white;
     -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);

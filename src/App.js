@@ -14,7 +14,6 @@ import SignIn from './Page/SignIn/SignIn';
 import Signup from './Page/SignUp/Signup';
 import SingleProduct from './Page/SingleProduct/SingleProduct';
 import {AuthContext} from "./Context/AuthContext"
-import { LOGIN_SUCCESS } from './Context/AuthAction';
 import Dashboard from './Page/Admin/Dashboard/Dashboard';
 import ViewUser from './Page/Admin/User/ViewUser';
 import ViewCloth from './Page/Admin/Product/Clothes/ViewCloth';
@@ -25,13 +24,14 @@ import AdminLogin from './Page/Admin/SignIn/SignIn';
 import CreateCat from './Page/Admin/Product/Category/CreateCat';
 import ViewCat from './Page/Admin/Product/Category/ViewCat';
 import NotFound from './Page/NotFound/NotFound';
+import Test from './Page/Admin/Dashboard/Test';
 
 function App() {
   const {user, dispatch} = useContext(AuthContext)
   const {admin, admindispatch} = useContext(AuthContext)
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"))
-    const admin = JSON.parse(localStorage.getItem("admin"))
+    const admin = JSON.parse(localStorage.getItem("boss"))
     if(user){
       dispatch({type:"LOGIN_SUCCESS", payload:user})
     }
@@ -57,8 +57,9 @@ function App() {
         <Route path="*" element={<NotFound/>}/>
 
 
-        <Route path='/admin' exact element={admin ? <Dashboard/> : <NotFound/>}/>
+        <Route path='/admin' exact element={admin ? <Test/> : <NotFound/>}/>
         <Route path='/admin/login' exact element={<AdminLogin/>}/>
+        <Route path='/admin/test' exact element={<Dashboard/>}/>
         <Route path='/admin/viewuser' exact element={admin ? <ViewUser/> : <NotFound/>}/>
         <Route path='/admin/product/view' exact element={admin ? <ViewCloth/> : <NotFound/>}/>
         <Route path='/admin/category/view' exact element={admin ? <ViewCat/> : <NotFound/>}/>

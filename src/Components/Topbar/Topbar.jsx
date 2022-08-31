@@ -2,7 +2,7 @@ import "./topbar.css"
 import {ArrowDropDown, HelpOutline, Person, Search, ShoppingCart} from "@material-ui/icons"
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem';
-import { useState, useContext } from "react";
+import { useState, useContext, useMemo } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -37,9 +37,17 @@ function Topbar() {
   const helpClose = () => {
     setHelp(null);
   };
+  const AllCart = useMemo(()=>({
+    product_id:cart.product_id, product_name:cart.product_name, product_price:cart.product_price,quantity:cart.quantity, product_image:cart.product_image, product_image_url:cart.product_image_url
+  }),[cart.product_id,cart.product_name,cart.product_price,cart.quantity,cart.product_image,cart.product_image_url])
+  const AllCat = useMemo(()=>({
+    id:cat.id, name:cat.name
+  }),[cat.id,cat.name])
+
   useEffect(()=>{
+    const cancelToken = axios.CancelToken.source()
     const Category = async() =>{
-      const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_category")
+      const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_category", {cancelToken:cancelToken.token})
       setCat(data.data)
     }
     const CART = async() =>{
@@ -47,11 +55,14 @@ function Topbar() {
         const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/user/get_all_cart",{headers:{"Authorization":"Bearer " +localStorage.getItem("token")}})
         setCart(data.data)
       }
-      
     }
     CART()
     Category()
-  },[cart])
+    return () =>{
+      cancelToken.cancel()
+    }
+  },[AllCart,AllCat,user])
+  console.log(cart)
   const logOut = async() =>{
     const formData = new FormData()
     const clear = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/user/logout",formData,{headers:{"Authorization":"Bearer " +localStorage.getItem("token")}})

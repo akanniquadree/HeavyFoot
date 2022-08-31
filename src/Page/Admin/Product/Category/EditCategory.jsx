@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -25,53 +25,14 @@ const style = {
 };
 
 
-function EditCatModal({open, handleClose, setOpen, id, oldName}) {
-    const [name, setName] = useState(oldName.name)
-    const [error, setError] = useState("")
-    const [message, setMessage] = useState("")
-    const [state, setState] = useState({open: false,Transition: Fade});
-    const [disable, setDisable] = useState(false)
-    console.log(oldName)
-  const EditCat = async(e) =>{
-    e.preventDefault()
-    try{
-        const formData = new FormData()
-        formData.append("name", name)
-        setDisable(true)
-    const deleted = await axios.put(`https://ecommerces-api.herokuapp.com/api/v1/admin/edit_category/${id}`, {"name":name} ,{headers: {"Authorization": "Bearer " +localStorage.getItem("admintoken") }})
-        if(deleted){
-            setOpen(false)
-            setError("")
-            setMessage(deleted.data.message)
-            setDisable(false)
-        }
-    }catch(error){
-        console.log(error)
-        setError(error.response.data.errors.name)
-        setDisable(false)
+function EditCatModal({handleClick, disable, handleClose, open, error, message,state, handleCloset, onEdit, oldName}) {
+    const [name, setName] = useState("")
+    function SlideTransition(props) {
+      return <Slide {...props} direction="up" />;
     }
-}
-  function SlideTransition(props) {
-        return <Slide {...props} direction="up" />;
-      }
-      
-    
-      const handleClick = (Transition) => () => {
-        setState({
-          open: true,
-          Transition,
-        });
-        setError("")
-        setMessage("")
-      };
-    
-      const handleCloset = () => {
-        setState({
-          ...state,
-          open: false,
-        });
-      };
-
+    useEffect(()=>{
+        setName(oldName)
+    },[oldName])
   return (
     <Modal
         aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description"
@@ -83,7 +44,7 @@ function EditCatModal({open, handleClose, setOpen, id, oldName}) {
                 <Typography id="transition-modal-title" variant="h6" component="h2" align="center">
                     Edit Product Category
                 </Typography>
-                <form onSubmit={EditCat} >
+                <form onSubmit={(e)=>{e.preventDefault();onEdit(name)}} >
                         <div className="userForm">
                             <div className="userFormLeft">
                                 <input type="text" placeholder="Enter the Item Category Name" name="name" value={name} onChange={(e)=>setName(e.target.value)} required/>

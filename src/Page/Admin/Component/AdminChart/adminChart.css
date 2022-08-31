@@ -1,30 +1,17 @@
-.adminChart{
-    width: 100%;
-    flex: 2 1;
-    margin-right: 10px;
-}
-.adminChartWrapper{
-    -webkit-box-shadow:0px 0px 15px -10px rgba(0,0,0,0.67);
-    box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.67);
-    background-color: #fff;
-    width: 98%;
-    margin-top: 20px;
-    border-radius: 10px;
-}
+
 .adminChartTopUp{
     display: flex;
     flex-direction: column;
-    padding: 20px;
 }
 .adminChartTopUp h3{
     margin: 0;
     padding: 0;
-    font-size: 20px;
+    font-size: 13px;
 }
 .adminChartTopUp p{
     margin: 2px 0;
     padding: 0;
-    font-size: 15px;
+    font-size: 10px;
 }
 .adminChartBottom{
     height: 350px;

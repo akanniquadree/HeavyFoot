@@ -194,7 +194,7 @@
 .userFormRight{
     margin-left: 20px;
 }
-.userWrapper form > textarea{
+.fom  textarea{
     border: none;
     border-bottom: 1px solid black !important;
     margin-left: 20px;
@@ -204,7 +204,7 @@
     font-size: 15px;
     margin-bottom: 20px;
 }
-.userWrapper form > textarea:focus{
+.fom textarea:focus{
     outline: none;
 }
 .custom-file-input{

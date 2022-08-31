@@ -20,16 +20,7 @@ const style = {
 };
 
 
-function DeleteProductModal({open, change,product,handleClose, setOpen, id}) {
-  const deleteProduct = async(id) =>{
-    await axios.delete(`https://ecommerces-api.herokuapp.com/api/v1/admin/delete_product/${id}`, {headers: {"Authorization": "Bearer " +localStorage.getItem("admintoken") }}).then((result)=>{
-      const newData = product.filter(item=>{return item.id !== id})
-      change(newData)
-      setOpen(false)
-      
-  })
-}
-
+function DeleteProductModal({open,handleClose, onDelete}) {
   return (
     <Modal
         aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description"
@@ -42,7 +33,7 @@ function DeleteProductModal({open, change,product,handleClose, setOpen, id}) {
                     Are you sure you want to delete this Product
                 </Typography>
                 <div style={{display:"flex", justifyContent:"space-around", marginTop:"10px"}}>
-                    <button onClick={()=> {deleteProduct(id)}} style={{backgroundColor:"red",cursor:"pointer",border:"none", padding:"10px 20px", fontSize:"16px", color:"white"}}>Yes</button>
+                    <button onClick={()=> {onDelete(true)}} style={{backgroundColor:"red",cursor:"pointer",border:"none", padding:"10px 20px", fontSize:"16px", color:"white"}}>Yes</button>
                     <button onClick={handleClose}   style={{backgroundColor:"green",cursor:"pointer",border:"none", padding:"10px 20px", fontSize:"16px", color:"white"}}>No</button>
                 </div>
             </Box>

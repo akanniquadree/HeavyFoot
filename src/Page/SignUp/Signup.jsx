@@ -1,3 +1,4 @@
+import { CircularProgress } from '@mui/material'
 import React, { useContext, useState }from 'react'
 import { Link } from 'react-router-dom'
 import { register } from '../../ApiCall'
@@ -46,9 +47,9 @@ export default function Signup() {
                  <span>I accept the <Link to="">Terms And Conditions</Link>Privacy and Cookies Notice</span>
                 </div>
                 <div className="signupTop2">
-                 <button type='submit'>Create Account</button>
+                 <button type='submit' disabled={isFetching}>{ isFetching ? <CircularProgress  size="12px" style={{color:"white"}}/> : "Create Account"}</button>
                 </div>
-            
+                <p style={{color:"red"}}>{error}</p>
                  <p>Already Have an Account</p>
                  <Link to={redirect === "/" ? "/login" : "/login?redirect=" +redirect}>LOGIN</Link>
           

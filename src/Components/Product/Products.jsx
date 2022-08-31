@@ -46,7 +46,6 @@ export default function Products() {
   return (
     <div className="products">
         <div className="productsWrapper">
-            <Sidebar/>
             <div className="productsProduct">
               <div className="productProductsTop">
                 <h5>{name}</h5>

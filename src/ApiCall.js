@@ -24,6 +24,7 @@ export const Login = async(cred, dispatch, redirect) =>{
         dispatch({type:"LOGIN_START"})
         const {data} = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/public/login", cred)
         if(data){
+            window.location.replace(redirect)
             dispatch({type:"LOGIN_SUCCESS", payload:data.user})
             localStorage.setItem("user", JSON.stringify(data.user))
             localStorage.setItem("token", data.token)
@@ -40,11 +41,12 @@ export const Admin = async(cred, admindispatch, setMessage) =>{
         
         const {data} = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/boss/login", cred)
         if(data){
-            window.location.replace("/admin")
+            // window.location.replace("/admin")
             admindispatch({type:"ADMIN_LOGIN_SUCCESS", payload:data.admin})
             localStorage.setItem("boss", JSON.stringify(data.admin))
             localStorage.setItem("admintoken", data.token)
             setMessage(data.message)
+            console.log(data)
         }
     } catch (error) {
         

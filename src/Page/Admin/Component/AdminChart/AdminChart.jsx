@@ -52,8 +52,7 @@ export default function AdminChart() {
     },
   ];
   return (
-    <div className="adminChart">
-      <div className="adminChartWrapper">
+    <>
         <div className="adminChartTopUp">
             <h3>Daily Sales</h3>
             <p>Total daily sales and refund analysis </p> 
@@ -61,13 +60,11 @@ export default function AdminChart() {
         <div className="adminChartBottom">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
-              width={500}
-              height={300}
+              width={300}
+              height={400}
               data={data}
               margin={{
                 top: 20,
-                right: 30,
-                left: 20,
                 bottom: 5,
               }}
             >
@@ -82,7 +79,6 @@ export default function AdminChart() {
             </BarChart>
         </ResponsiveContainer>
         </div>
-      </div>
-    </div>
+      </>
   )
 }

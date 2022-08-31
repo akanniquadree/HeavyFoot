@@ -20,12 +20,7 @@ const style = {
 };
 
 
-function DeleteModal({open, handleClose, setOpen, id}) {
-  const deleteProduct = async() =>{
-    const deleted = await axios.delete(`https://ecommerces-api.herokuapp.com/api/v1/admin/delete_category/${id}`, {headers: {"Authorization": "Bearer " +localStorage.getItem("admintoken") }})
-    setOpen(false)
-}
-
+function DeleteModal({open, handleClose, onDelete}) {
   return (
     <Modal
         aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description"
@@ -38,7 +33,7 @@ function DeleteModal({open, handleClose, setOpen, id}) {
                     Are you sure you want to delete this Category
                 </Typography>
                 <div style={{display:"flex", justifyContent:"space-around", marginTop:"10px"}}>
-                    <button onClick={()=> {deleteProduct()}} style={{backgroundColor:"red",cursor:"pointer",border:"none", padding:"10px 20px", fontSize:"16px", color:"white"}}>Yes</button>
+                    <button onClick={()=> onDelete(true)} style={{backgroundColor:"red",cursor:"pointer",border:"none", padding:"10px 20px", fontSize:"16px", color:"white"}}>Yes</button>
                     <button onClick={handleClose}   style={{backgroundColor:"green",cursor:"pointer",border:"none", padding:"10px 20px", fontSize:"16px", color:"white"}}>No</button>
                 </div>
             </Box>

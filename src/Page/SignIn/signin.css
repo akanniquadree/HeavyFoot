@@ -87,6 +87,9 @@
 .signupTop2 button:hover{
     background-color: #f73621;
 }
+.signupTop2 button:disabled{
+    cursor: not-allowed;
+}
 .signupForm p{
     text-align: center;
 }

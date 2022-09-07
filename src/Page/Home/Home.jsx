@@ -18,7 +18,7 @@ export default function Home() {
     <>
     <Topbar/>
      <div className="home">
-     <div className='homeSlider'>
+     <div className='homeSliders'>
       <Slider slides={SliderData}/>
       <Promotion/>
       </div>

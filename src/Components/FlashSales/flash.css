@@ -114,9 +114,9 @@
     color: black  !important;
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width:765px) {
     .flashWrapper{
-        width: 100%;
+        width: 87%;
     }
     .flashBottom{
         width: 100%;
@@ -145,4 +145,28 @@
     .flashBottomCard h5{
         text-align: center;
     }
+    .flashTop h5{
+        margin-left: 5px;
+        font-size: 14px;
+        font-weight: 500 ;
+    }
+    .flashTop h6{
+        font-size: 9px;
+        font-weight: 500 ;
+    }
+    .flash span{
+        margin-right: 10px;
+        font-size: 9px;
+        padding: 3px;
+    }
+  
+}
+@media screen and (max-width:1000px) {
+    .flashBottom{
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;  
+        overflow-x: scroll !important;  
+    }
+  
 }

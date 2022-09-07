@@ -12,15 +12,27 @@
     width: 87%;
     display: flex;
 }
-@media screen and (max-width:700px) {
+.homeSliders{
+    width: 87%;
+    display: flex;
+}
+@media screen and (max-width:760px) {
     .homeSlider{
         flex-direction: column;
+        width: 87%;
+    }
+    .homeSliders{
         width: 100%;
+        display: flex;
     }
 }
 @media screen and (max-width:1000px) {
     .homeSlider{
         flex-direction: column;
         width: 87%;
+    }
+    .homeSliders{
+        width: 87%;
+        display: flex;
     }
 }

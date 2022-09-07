@@ -18,3 +18,9 @@
         width: 100%;
     }
 }
+@media screen and (max-width:1000px) {
+    .homeSlider{
+        flex-direction: column;
+        width: 87%;
+    }
+}

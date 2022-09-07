@@ -118,7 +118,27 @@
         margin-bottom: 20px;
     }
     .homeFashionBottomImg{
-        width: 127px !important;
+        width: 116px !important;
+        height: 133px !important;
+    }
+    .homeFashionBottomImg img{
+        width: 50px;
+        height: 50px;
+    }
+}
+@media screen and (max-width:1000px) {
+    .homeFashion{
+        flex: 5 1 100% !important;
+    }
+    .homeFashionWrapper{
+        width: 100%;
+    }
+    .margin{
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .homeFashionBottomImg{
+        width: 108px !important;
         height: 133px !important;
     }
     .homeFashionBottomImg img{

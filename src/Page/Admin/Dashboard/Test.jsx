@@ -21,6 +21,7 @@ import { ArrowDropDown, Category, Dashboard, MoneyOff, People, PersonAdd, RateRe
 import "./dashboard.css"
 import AdminChart from '../Component/AdminChart/AdminChart';
 import Deposits from '../Component/Deposit/Deposit';
+import Orders from '../Component/AdminChart/DashOrder';
 
 // import { mainListItems, secondaryListItems } from './listItems';
 // import Chart from './Chart';
@@ -409,7 +410,7 @@ function DashboardContent() {
               {/* Recent Orders */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  {/* <Orders /> */}
+                  <Orders/>
                 </Paper>
               </Grid>
             </Grid>

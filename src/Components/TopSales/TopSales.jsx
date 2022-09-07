@@ -5,6 +5,7 @@ import { useEffect } from "react"
 import axios from "axios"
 import { AuthContext } from '../../Context/AuthContext'
 import { CircularProgress } from "@mui/material"
+import Skeleton from '@mui/material/Skeleton';
 
 export default function TopSales() {
     const [product, setProduct] = useState([])
@@ -13,11 +14,14 @@ export default function TopSales() {
     const[message, setMessage] = useState("")
     const {user} = useContext(AuthContext)
     const[quantity, setQuantity] = useState(1)
+    const[fetching, setFetching] = useState(true)
     useEffect(()=>{
         let ignore = false;
        const Product = async() =>{
         const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_products")
-        if (!ignore) setProduct(data.sort(() => Math.random() - 0.5))
+        if (!ignore) {setProduct(data.sort(() => Math.random() - 0.5))
+            setFetching(false)
+        }
        }
        Product() 
        return () => { ignore = true };
@@ -52,6 +56,11 @@ export default function TopSales() {
         </div>
         <div className="TopSalesBottom">
             {
+                
+              fetching ?
+                
+                <Skeleton animation="wave" width="100%" height="198px" sx={{marginLeft:"10px", backgroundColor:"transparent"}} />
+                :
                 product?.slice(0, 7).map((itm, index)=>(
                         <div className="TopSalesBottomCard" key={index}>
                             <Link to={`/product/${itm.id}`} className="TopSalesBottomCard" >

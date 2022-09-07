@@ -3,10 +3,13 @@ import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthContext'
+import Skeleton from '@mui/material/Skeleton';
+
 
 function ShowTimer({days, hours, minutes, seconds }) {
     const [product, setProduct] = useState([])
     const[disable, setDisable] = useState(false)
+    const[fetching, setFetching] = useState(true)
     const[error, setError] = useState("")
     const[message, setMessage] = useState("")
     const {user} = useContext(AuthContext)
@@ -15,7 +18,10 @@ function ShowTimer({days, hours, minutes, seconds }) {
         let ignore = false
        const Product = async() =>{
         const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_products")
-        if (!ignore) setProduct(data.reverse())
+        if (!ignore) { 
+            setProduct(data.reverse()); 
+            setFetching(false)
+        }
        }
        Product()
         return () => { ignore = true }; 
@@ -51,8 +57,12 @@ function ShowTimer({days, hours, minutes, seconds }) {
         </div>
         <div className="flashBottom">
         {
+              fetching ?
+                
+                    <Skeleton animation="wave" width="100%" height="198px" sx={{marginLeft:"10px", backgroundColor:"transparent"}} />
+              :
                 product?.slice(0, 7).map((itm, index)=>(
-                        <div className="TopSalesBottomCard" key={index}>
+                    <div className="flashBottomCard" key={index}>
                             <Link to={`/product/${itm.id}`} className="TopSalesBottomCard" >
                                 <img src="/Images/boxer.jpg" alt="" />
                                 <h5>{itm.name}</h5>
@@ -61,7 +71,8 @@ function ShowTimer({days, hours, minutes, seconds }) {
                             </Link>
                             <button  disabled={disable}onClick={()=>{addToCart({id:itm.id,name:itm.name, price:itm.discount,img:itm.avater})}}>{disable ? <CircularProgress thickness={4.0} style={{color:"white"}} size="13px"/>:"Add To Cart"}</button>
                         </div>
-                ))
+                )) 
+                
             }
             
         </div>

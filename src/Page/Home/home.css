@@ -1,9 +1,15 @@
 .home{
     width: 100vw;
-    /* background-color: black; */
     background-color: #f0f2f5;
     display: flex;
-    /* padding: 0 5% 0 5%;  */
+    margin: 20px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.homes{
+    width: 100vw;
+    background-color: #f0f2f5;
+    display: flex;
     margin: 20px 0;
     flex-wrap: wrap;
     justify-content: center;
@@ -16,16 +22,7 @@
     width: 87%;
     display: flex;
 }
-@media screen and (max-width:760px) {
-    .homeSlider{
-        flex-direction: column;
-        width: 87%;
-    }
-    .homeSliders{
-        width: 100%;
-        display: flex;
-    }
-}
+
 @media screen and (max-width:1000px) {
     .homeSlider{
         flex-direction: column;
@@ -34,5 +31,18 @@
     .homeSliders{
         width: 87%;
         display: flex;
+    }
+}
+@media screen and (max-width:765px) {
+    .homeSlider{
+        flex-direction: column;
+        width: 97%;
+    }
+    .homeSliders{
+        width: 100%;
+        display: flex;
+    }
+    .homes{
+        margin: 0px 0 20px 0;
     }
 }

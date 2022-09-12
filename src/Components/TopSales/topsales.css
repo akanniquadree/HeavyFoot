@@ -125,7 +125,7 @@
 
 @media screen and (max-width:700px) {
     .TopSalesWrapper{
-        width: 87%;
+        width: 97%;
     }
     .TopSalesBottom{
         width: 100%;
@@ -136,6 +136,8 @@
     .TopSalesTop h5{
         margin-left: 10px;
         color: white;
+        font-size: 14px;
+        font-weight: 500;
     }
     .TopSalesTop h6{
         font-size: 12px;

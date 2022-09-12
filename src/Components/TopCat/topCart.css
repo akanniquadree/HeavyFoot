@@ -84,7 +84,7 @@
 
 @media screen and (max-width:700px) {
     .TopCartWrapper{
-        width: 100%;
+        width: 97%;
     }
     .TopCartBottom{
         width: 100%;
@@ -94,9 +94,10 @@
     }
     .TopCartTop h5{
         margin-left: 10px;
-        font-size: 17px;
+        font-size: 14px;
         color: white;
         text-align: center;
+        font-weight: 500;
     }
     .TopCartTop h6{
         font-size: 12px;

@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
     <Topbar/>
-     <div className="home">
+     <div className="homes">
      <div className='homeSliders'>
       <Slider slides={SliderData}/>
       <Promotion/>

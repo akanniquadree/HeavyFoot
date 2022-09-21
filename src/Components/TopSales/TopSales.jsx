@@ -49,7 +49,7 @@ export default function TopSales() {
       }
     }
   return (
-    <div className="TopSales" style={{marginTop:"20px"}}>
+    <div className="TopSales">
         <div className="TopSalesWrapper">
             <div className="TopSalesTop">
             <h5>Top Sales</h5>
@@ -61,8 +61,8 @@ export default function TopSales() {
                 
                 <Skeleton animation="wave" width="100%" height="198px" sx={{marginLeft:"10px", backgroundColor:"transparent"}} />
                 :
-                product?.slice(0, 7).map((itm, index)=>(
-                        <div className="TopSalesBottomCard" key={index}>
+                product?.slice(0, 8).map((itm, index)=>(
+                        <div className="cover" key={index}>
                             <Link to={`/product/${itm.id}`} className="TopSalesBottomCard" >
                                 <img src="/Images/boxer.jpg" alt="" />
                                 <h5>{itm.name}</h5>

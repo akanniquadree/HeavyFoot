@@ -9,7 +9,7 @@
     text-decoration: none !important;
 }
 .flashWrapper{
-    width: 87%;
+    width: 100%;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -17,39 +17,41 @@
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
 }
 .flashTop{
-    background-color: #e61601;
-    height: 30px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
 .flashTop h5{
-    margin-left: 10px;
-    font-size: 17px;
-    color: white;
+    font-size: 30px;
+    color: black;
     font-weight: 700 ;
+    text-align: center;
+    margin: 18px 0 0 0;
 }
 .flashTop h6{
-    font-size: 13px;
-    color: white;
+    font-size: 18px;
+    color: red;
     font-weight: 700 ;
+    margin: 10px 0 0 0;
 }
+
 .flash span{
-    margin-right: 10px;
-    font-size: 12px;
-    color: white;
+    font-size: 15px;
+    margin: 10px 0 0 0;
+    color: black;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.7 ease-in-out;
 }
 .flash span:hover{
-    background-color: #ed311c;
+    background-color: rgb(72, 72, 72);
 }
 .flashBottom{
     width: 100%;
     display: flex;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
+    height: 204px;    
 }
 .flashBottomCard{
     margin: 7px 9px;
@@ -59,16 +61,16 @@
     flex-direction: column;
     align-items: center;
     transition: all 0.7s ease;
-    /* background-color: black; */
+    background-color: rgb(239, 239, 239);
 }
-.flashBottomCard button{
+.cover button{
    visibility: hidden;
 }
-.flashBottomCard:hover{
+.cover:hover{
     -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
 }
-.flashBottomCard:hover button{
+.cover:hover button{
     visibility: visible;
     width: 100%;
     display: flex;
@@ -116,7 +118,7 @@
 
 @media screen and (max-width:765px) {
     .flashWrapper{
-        width: 97%;
+        width: 100%;
     }
     .flashBottom{
         width: 100%;
@@ -125,17 +127,12 @@
         overflow-x: scroll !important;  
     }
     .flashTop h5{
-        margin-left: 10px;
-        color: white;
+        font-size: 20px;
     }
     .flashTop h6{
-        font-size: 12px;
-        color: white;
     }
     .flash span{
-        margin-right: 3px;
-        padding: 4px;
-        border-radius: 5px;
+        margin: 10px 0 10px 0;
     }
     .flashBottomCard{
         margin: 3px 7px;
@@ -146,8 +143,7 @@
         text-align: center;
     }
     .flashTop h5{
-        margin-left: 5px;
-        font-size: 14px;
+        font-size: 20px;
         font-weight: 500 ;
     }
     .flashTop h6{

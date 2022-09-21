@@ -3,7 +3,7 @@ import "./homeFashion.css"
 import axios from "axios"
 import { Skeleton } from "@mui/material"
 
-export default function HomeFashion() {
+export default function HomeFashionTwo() {
   const [product, setProduct] = useState([])
   const [cat, setCat] = useState([])
   const[fetching, setFetching] = useState(true)
@@ -13,9 +13,9 @@ export default function HomeFashion() {
       const Clothe = async() =>{
         const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_products")
         const Cate = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_category")
-        setCat(Cate.data.data[0])
+        setCat(Cate.data.data[3])
         if(data){
-        setProduct(data.filter((itm)=> itm.category === Cate.data.data[0].name))
+        setProduct(data.filter((itm)=> itm.category === Cate.data.data[3].name))
         setFetching(false)
       }
       }

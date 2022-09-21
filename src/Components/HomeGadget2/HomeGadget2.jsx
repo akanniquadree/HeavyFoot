@@ -3,7 +3,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import "./homeGadget.css"
 
-export default function HomeGadget() {
+export default function HomeGadgetTwo() {
   const [product, setProduct] = useState([])
   const [cat, setCat] = useState([])
   const[fetching, setFetching] = useState(true)
@@ -13,9 +13,9 @@ export default function HomeGadget() {
       const Clothe = async() =>{
         const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_products")
         const Cate = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_category")
-        setCat(Cate.data.data[1])
+        setCat(Cate.data.data[2])
         if(data){
-        setProduct(data.filter((itm)=> itm.category === Cate.data.data[1].name))
+        setProduct(data.filter((itm)=> itm.category === Cate.data.data[2].name))
         setFetching(false)
       }}
       Clothe()

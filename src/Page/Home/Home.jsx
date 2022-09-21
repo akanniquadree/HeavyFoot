@@ -3,7 +3,9 @@ import FlashPromotion from '../../Components/FlashPromotion/FlashPromotion'
 import Flash from '../../Components/FlashSales/Flash'
 import Footer from '../../Components/Footer/Footer'
 import HomeFashion from '../../Components/HomeFashion/HomeFashion'
+import HomeFashionTwo from '../../Components/HomeFashion2/HomeFashionTwo'
 import HomeGadget from '../../Components/HomeGadget/HomeGadget'
+import HomeGadgetTwo from '../../Components/HomeGadget2/HomeGadget2'
 import Promotion from '../../Components/Promotion/Promotion'
 import Sidebar from '../../Components/Sidebar/Sidebar'
 import Slider from '../../Components/Slider/Slider'
@@ -16,32 +18,13 @@ import "./home.css"
 export default function Home() {
   return (
     <>
-    <Topbar/>
-     <div className="homes">
-     <div className='homeSliders'>
+      <Topbar/>
       <Slider slides={SliderData}/>
-      <Promotion/>
-      </div>
-    </div>
-     <Flash/>
-    <TopSales/>
-      <div className='home'>
-          <div className='homeSlider'>
-            <HomeFashion/>
-            <HomeGadget/>
-            <HomeFashion/>
-            <HomeGadget/>
-          </div>
-      </div>
-    
-      <div className='home'>
-          <div className='homeSlider'>
-            <FlashPromotion/>
-            <FlashPromotion/>
-          </div>
-      </div>
-        <TopCart/>
-      <Footer/>
+      <Flash/>
+      <TopSales/>
+      <TopCart/>
+      {/* <HomeFashion/> */}
+      {/* <Footer/> */}
     </>
   )
 }

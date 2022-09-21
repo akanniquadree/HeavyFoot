@@ -32,7 +32,7 @@ export default function TopCart() {
                 
                  <Skeleton animation="wave" width="100%" height="198px" sx={{marginLeft:"10px", backgroundColor:"transparent"}} />
                  :
-                    cat?.map((itm, index)=>(
+                    cat?.slice(0,3).map((itm, index)=>(
                         <div className="TopCartBottomCard" key={index}>
                             <img src="/Images/caro3.jpg" alt="" />
                             <h5>{itm.name}</h5>

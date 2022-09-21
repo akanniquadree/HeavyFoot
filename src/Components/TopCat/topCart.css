@@ -4,24 +4,21 @@
     justify-content: center;
 }
 .TopCartWrapper{
-    width: 87%;
-    background-color: white;
-    /* height: 290px; */
+    width: 100%;
+    background-color: #2a2a2a;
+    background-image: url(../../../public/Images/bg.png);
     display: flex;
     flex-direction: column;
     -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
 }
 .TopCartTop{
-    background-color: #e61601;
-    height: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 .TopCartTop h5{
-    margin-left: 10px;
-    font-size: 17px;
+    font-size: 30px;
     color: white;
     font-weight: 700 ;
 }
@@ -48,8 +45,9 @@
     flex-wrap: wrap;    
 }
 .TopCartBottomCard{
-    margin: 7px 9px;
-    width: 150px;
+    display: flex;
+    justify-content: space-around;
+    width: 450px;
     cursor: pointer;
     transition: all 0.5s;
     /* background-color: black; */
@@ -59,15 +57,17 @@
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
 }
 .TopCartBottomCard img{
-    width: 70x;
-    height: 100px;
+    width: 420px;
+    height: 320px;
     object-fit: cover;
+    position: relative;
 }
 .TopCartBottomCard h5{
     margin: 0;
     padding: 0;
     font-size: 17px;
     font-weight: 500;
+    position: absolute;
 }
 .TopCartBottomCard span{
     margin: 0;

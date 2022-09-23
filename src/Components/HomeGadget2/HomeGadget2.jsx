@@ -13,9 +13,9 @@ export default function HomeGadgetTwo() {
       const Clothe = async() =>{
         const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_products")
         const Cate = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_category")
-        setCat(Cate.data.data[2])
+        setCat(Cate.data.data[3])
         if(data){
-        setProduct(data.filter((itm)=> itm.category === Cate.data.data[2].name))
+        setProduct(data.filter((itm)=> itm.category === Cate.data.data[3].name))
         setFetching(false)
       }}
       Clothe()
@@ -27,13 +27,8 @@ export default function HomeGadgetTwo() {
     <div className="homeFashion margin">
     <div className="homeFashionWrapper">
         <div className="homeFashionTop">
-            <div className="homeFashionTopH5">
                 <h5>{cat.name}</h5>
-            </div>
             <span> View All</span>
-        </div>
-        <div className="homeFashionMiddle">
-            <img src="/Images/fashion.png" alt="" />
         </div>
         <div className="homeFashionBottom" >
           {

@@ -3,7 +3,6 @@ import FlashPromotion from '../../Components/FlashPromotion/FlashPromotion'
 import Flash from '../../Components/FlashSales/Flash'
 import Footer from '../../Components/Footer/Footer'
 import HomeFashion from '../../Components/HomeFashion/HomeFashion'
-import HomeFashionTwo from '../../Components/HomeFashion2/HomeFashionTwo'
 import HomeGadget from '../../Components/HomeGadget/HomeGadget'
 import HomeGadgetTwo from '../../Components/HomeGadget2/HomeGadget2'
 import Promotion from '../../Components/Promotion/Promotion'
@@ -23,7 +22,9 @@ export default function Home() {
       <Flash/>
       <TopSales/>
       <TopCart/>
-      {/* <HomeFashion/> */}
+      <HomeFashion/>
+      <HomeGadget/>
+      <HomeGadgetTwo/>
       {/* <Footer/> */}
     </>
   )

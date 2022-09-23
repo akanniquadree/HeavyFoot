@@ -24,21 +24,12 @@ export default function HomeGadget() {
   },[])
 
   return (
-    <div className="homeFashion margin">
-    <div className="homeFashionWrapper">
-        <div className="homeFashionTop">
-            <div className="homeFashionTopH5">
-                <h5>{cat.name}</h5>
-            </div>
-            <span> View All</span>
-        </div>
-        <div className="homeFashionMiddle">
-            <img src="/Images/fashion.png" alt="" />
-        </div>
-        <div className="homeFashionBottom" >
+    <div className="homeGadget margin">
+    <div className="homeGadgetWrapper">
+        <div className="homeGadgetBottom" >
           {
            !fetching ? product.slice(0, 5).map((itm, index)=>(
-              <div className="homeFashionBottomImg" key={index}>
+              <div className="homeGadgetBottomImg" key={index}>
                 <img src="/Images/david.jpg" alt="" /> 
                 <h5>{itm.name}</h5> 
                 <span>{itm.discount}</span>
@@ -50,6 +41,11 @@ export default function HomeGadget() {
               <Skeleton  animation="wave" width="100%" height="305px" sx={{marginLeft:"10px", backgroundColor:"transparent"}} />
           }
         </div>
+        <div className="homeGadgetTop">
+                <h5>{cat.name}</h5>
+                <span> View All</span>
+        </div>
+            
     </div>
 </div>
   )

@@ -2,6 +2,7 @@ import "./topCart.css"
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import Skeleton from '@mui/material/Skeleton';
+import {Link} from "react-router-dom"
 
 export default function TopCart() {
     const [cat, setCat] = useState([])
@@ -35,7 +36,11 @@ export default function TopCart() {
                     cat?.slice(0,3).map((itm, index)=>(
                         <div className="TopCartBottomCard" key={index}>
                             <img src="/Images/caro3.jpg" alt="" />
-                            <h5>{itm.name}</h5>
+                            <div className="catDesc">
+                                <h5>{itm.name}</h5>
+                                <Link to="/"><h6>View Category</h6></Link>
+                            </div>
+                            
                         </div>
                     ))
             }

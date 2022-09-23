@@ -25,16 +25,12 @@ export default function HomeFashion() {
   },[])
   return (
     <div className="homeFashion margin">
-        <div className="homeFashionWrapper">
+         <div className="homeFashionWrapper">
             <div className="homeFashionTop">
-                <div className="homeFashionTopH5">
                     <h5>{cat.name}</h5>
-                </div>
                 <span> View All</span>
             </div>
-            <div className="homeFashionMiddle">
-                <img src="/Images/fashion.png" alt="" />
-            </div>
+            
             <div className="homeFashionBottom" >
           {
            !fetching ? product.slice(0, 5).map((itm, index)=>(
@@ -50,7 +46,7 @@ export default function HomeFashion() {
             <Skeleton  animation="wave" width="100%" height="305px" sx={{marginLeft:"10px", backgroundColor:"transparent"}} />
           }
         </div>
-        </div>
+        </div> 
     </div>
   )
 }

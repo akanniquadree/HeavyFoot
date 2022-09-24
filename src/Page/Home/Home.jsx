@@ -25,6 +25,7 @@ export default function Home() {
       <HomeFashion/>
       <HomeGadget/>
       <HomeGadgetTwo/>
+      <Promotion/>
       {/* <Footer/> */}
     </>
   )

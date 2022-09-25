@@ -11,7 +11,6 @@ import { AuthContext } from '../../Context/AuthContext'
 export default function TopDisplay() {
     const {id} = useParams()
     const [product, setProduct]=useState([])
-    const [singleProduct, setSingleProduct]=useState([])
     const [quantity, setQuantity] = useState(1)
     const [error, setError] = useState("")
     const [message, setMessage] = useState("")

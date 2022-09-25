@@ -1,6 +1,5 @@
 .singleProduct{
     width: 100vw;
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,7 +7,7 @@
 }
 .singleProductTop{
     display: flex;
-    width: 87%;
+    width: 100%;
     justify-content: center;
     align-items: center;
 }

@@ -62,7 +62,6 @@ function Topbar() {
       cancelToken.cancel()
     }
   },[AllCart,AllCat,user])
-  console.log(cart)
   const logOut = async() =>{
     const formData = new FormData()
     const clear = await axios.post("https://ecommerces-api.herokuapp.com/api/v1/user/logout",formData,{headers:{"Authorization":"Bearer " +localStorage.getItem("token")}})

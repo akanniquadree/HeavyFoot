@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Footer from '../../Components/Footer/Footer'
+import SimilarProduct from '../../Components/SingleProductDisplay/SimilarProduct'
 import TopDisplay from '../../Components/SingleProductDisplay/TopDisplay'
 import Topbar from '../../Components/Topbar/Topbar'
 import TopSales from '../../Components/TopSales/TopSales'
@@ -14,9 +15,9 @@ export default function SingleProduct() {
   const [product, setProduct]=useState([])
   const {id} = useParams()
   useEffect(()=>{
-    const Clothe = async(id) =>{
+    const Clothe = async() =>{
         const {data} = await axios.get("https://ecommerces-api.herokuapp.com/api/v1/public/get_all_products")
-        setProduct(data)
+        setProduct(data.filter((item)=> String(item.id) === id))
         if(product.filter((itm)=> String(itm.id) === id)){
           setNotFound(true)
         }
@@ -34,7 +35,7 @@ export default function SingleProduct() {
                   <div className="singleProductTop">
                       <TopDisplay/>
                   </div>
-                  <TopSales/>
+                  <SimilarProduct cat={product[0].category}/>
                   <TopSales/>
               </div>
               <Footer/>

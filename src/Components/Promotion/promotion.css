@@ -73,9 +73,11 @@
     }
    .promotionTop{
         width: 100%;
+        justify-content: center;
     }
     .promotionBottom{
         width:100%;
+        justify-content: center;
     }
     .promotionBottom h4{
         font-size:17px;

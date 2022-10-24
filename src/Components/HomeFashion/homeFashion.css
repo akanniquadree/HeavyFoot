@@ -1,168 +1,113 @@
 .homeFashion{
    width: 100vw;
+   background-color: #eee;
+   display: flex;
+   justify-content: center;
 }
 .homeFashionWrapper{
-    width: 100%;
-    display: flex;
-    background-color: white;
+    margin-top: 50px;
+    width: 87%;
 }
 .homeFashionTop{
-    margin-top: 50px;
-    margin-left: 20px;
-    /* margin-right: 20px; */
-    margin-bottom: 30px;
-    flex: 1 1 200px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-image: url(../../../public/Images/food.png);
 }
 .homeFashionTop h5{
     font-size: 40px;
     line-height: 30px;
     text-shadow: 2px 0 3px #000;
     margin-bottom: 10px;
-    color: white;
-}
-.homeFashionTop span{
-    font-size: 20px;
-    color: #f4a51c;
-    cursor: pointer;
-    text-align: center;
-   transition: all 0.5s;
-}
-.homeFashionTop span:hover{
-    border-left: 10px solid #fff;
-    transition: all .2s ease;
-    padding-left: 5px
+    color: black;
+    opacity: 0.8;
+    margin-bottom: 15px;
 }
 
 .homeFashionBottom{
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 30px;
-    flex: 2 1 700px;
     display: flex;
     flex-wrap: wrap;
-    /* flex-wrap: wrap;
-    cursor: pointer; */
+    justify-content: space-between;
     
 }
 .homeFashionBottomImg{
-    width: 200px !important;
-    height: 215px !important;
+    width: 381px !important;
+    height: 341px !important;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border: 1px solid #dedede;
+    border-radius: 10px !important;
+    margin-bottom: 20px;
+    justify-content: space-between;
 }
-.homeFashionBottomImg img{
-    width: 77px;
-    height: 92px;
-    margin: 10px;
+.homeFashionBottomTop{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    align-items: center;
+}
+.homeFashionBottomTop img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     object-fit: cover;
     transition: 0.5s ease;
     -webkit-transition: 0.5s ease
 }
-.homeFashionBottomImg button{
-    visibility: visible;
-    width: 100%;
+.homeFashionBottomTopP{
+    color: #000 !important;
+    font-size: 15px !important;
+    text-decoration: none !important;
+}
+.homeFashionBottomCenter{
+    margin-left: 30px;
+    margin-bottom: 40px;
+}
+.homeFashionBottomCenter > h5{
+    font-size: 35px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    color: black;
+}
+.homeFashionBottomCenter > span{
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    color: #b6b6b6;
+}
+.More{
+    margin-bottom: 46px;
+    margin-left: 30px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: #fff !important;
-    background-color: #e61601;
-    padding: 2px;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px
+    color: #000;
+    font-size: 20px;
+    text-decoration: none;
 }
-.homeFashionBottomImg img:hover{
-    transform: scale(1.1);
-}
-.homeFashionBottomImg h5{
-    margin: 0;
-    padding: 0;
-    font-size: 13px;
-    font-weight: 800;
-    color: #e61601;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width:145px;
-}
-.homeFashionBottomImg span{
-    margin: 5px 0;
-}
-.homeFashionBottomImg p{
-    padding: 0;
-    margin: 0;
-    text-decoration: line-through;
-}
-
 
 @media screen and (max-width:1000px) {
-    .homeFashionWrapper{
-        flex-direction: column;
-    }
-    .homeFashionTop{
-        margin: 0;
-        flex: 1 1 200px;
-    }
-    .homeFashionTop h5{
-        font-size: 40px;
-        line-height: 30px;
-        text-shadow: 2px 0 3px #000;
-        margin: 10px 0;
-        color: white;
-    }
     .homeFashionBottom{
-        flex:1 1 ;
-        margin: 0 ;
-        
+        flex-direction: row;
     }
-    .homeFashionBottomImg{
-        width: 254px !important;
-        height: 162px !important;
-    }
-    .homeFashionBottomImg img{
-        width: 50px;
-        height: 50px;
-    }
-    .homeFashionBottomImg h5{
-       
-        width:192px;
+    .homeFashionBottomImg {
+        width: 320px !important;
+        height: 341px !important;
+        border-radius: 10px !important;
+        margin-bottom: 23px;
     }
 }
 @media screen and (max-width:765px) {
     .homeFashionWrapper{
-        flex-direction: column;
-    }
-    .homeFashionTop{
-        margin: 0;
-        flex: 1 1 150px;
-    }
-    .homeFashionTop h5{
-        font-size: 40px;
-        line-height: 30px;
-        text-shadow: 2px 0 3px #000;
-        margin: 10px 0;
-        color: white;
+        width: 100%;
     }
     .homeFashionBottom{
-        flex:1 1 ;
-        margin: 0 ;
+        flex-direction: column;
     }
     .homeFashionBottomImg{
-        width: 118px !important;
-        height: 162px !important;
-    }
-    .homeFashionBottomImg img{
-        width: 50px;
-        height: 50px;
-    }
-    .homeFashionBottomImg h5{
-       
-        width:104px;
+        width: 311px !important;
+        height: 275px !important;
+        margin-left: 30px;
+        margin-bottom: 20px;
     }
 }

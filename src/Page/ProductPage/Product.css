@@ -1,9 +1,9 @@
-.vome{
-    margin:0 7px 20px 7%;
-    color: black;
-    font-size: 18px;
+.productTopbar{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
 }
-.vome:hover{
-    text-decoration: underline;
-    color: #ed311c;
+.productdetail{
+    width: 87%;
+    height: 150px;
 }

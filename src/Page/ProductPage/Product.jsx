@@ -30,11 +30,16 @@ export default function Product() {
         notFound ?
           <>
               <Topbar/>
-              <Link to="/" className='vome'>Home</Link>
-              <span className='vomes'> &gt; Product</span>
-              <ProductProm/>
-              <Products/>
-              <Footer/>
+              <div className="productTopbar">
+                <div className="productdetail">
+                  <Link to="/" className='vome'>Home</Link>
+                  <span className='vomes'> &gt; Product</span>
+                </div>
+                  
+              </div>
+              {/* <ProductProm/> */}
+              {/* <Products/> */}
+              {/* <Footer/> */}
           </>
           :
           <NotFound/>

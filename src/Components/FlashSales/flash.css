@@ -3,26 +3,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-x: hidden;
 }
 .MuiLink-underlineHover:hover {
     text-decoration: none !important;
 }
 .flashWrapper{
-    width: 100%;
+    width: 87%;
     background-color: white;
     display: flex;
     flex-direction: column;
-    -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
-    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
 }
 .flashTop{
     display: flex;
-    flex-direction: column;
+    height:70px;
     align-items: center;
+    justify-content: space-between;
+    margin-top:20px;
 }
 .flashTop h5{
-    font-size: 30px;
+    font-size: 36px;
     color: black;
     font-weight: 700 ;
     text-align: center;
@@ -48,112 +47,129 @@
     background-color: rgb(72, 72, 72);
 }
 .flashBottom{
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    height: 204px;    
+    margin-top:20px;  
+    justify-content: space-between;
+    position: relative
 }
-.flashBottomCard{
-    margin: 7px 9px;
-    width: 150px;
-    cursor: pointer;
+.cover{
+    width: 270px;
+    height: 320px;
+}
+.TopSALE{
+    width: 270px;
+    height: 200px;
+    border-radius: 10px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.7s ease;
-    background-color: rgb(239, 239, 239);
+    justify-content: center;
+    align-content: center;
+    position: relative;
+}
+.addTo{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    bottom: 3px;
+    left: 6px;
+    width:100%
+}
+.Topsale{
+    padding: 15px;
 }
 .cover button{
    visibility: hidden;
 }
-.cover:hover{
-    -webkit-box-shadow:0px 1px 16px -8px rgba(0,0,0,0.67);
-    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.67);
-}
+
 .cover:hover button{
     visibility: visible;
-    width: 100%;
+    transition: all 0.5s ease;
+}
+.css-hcti34-MuiButtonBase-root-MuiButton-root:hover {
+    background-color: rgb(32, 32, 32) !important;
+   
+}
+.css-ov41yh-MuiButtonBase-root-MuiButton-root:hover {
+    background-color: rgb(233, 233, 233) !important;
+}
+.TopSALE img{
+    max-width: 200px;
+    max-height: 180px;
+    object-fit: contain;
+    margin-top: 20px;
+}
+.Topsale h5{
+    font-size: 17px;
+    font-weight: 700;
+    width: 250px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: black;
+}
+.Topsale p{
+    font-size: 15px;
+    width: 250px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #bab6b6;
+    margin-top: 10px;
+}
+.TopsaleBot{
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 10px;
+    align-items: center;
+}
+.disc{
+    font-size: 15px;
+    color: green;
+    border: 2px solid green;
+    width: 50px;
+    font-weight: 700;
+    height: 23px;
+    border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff !important;
-    background-color: #e61601;
-    padding: 5px;
-    border: none;
-    cursor: pointer;
 }
-.flashBottomCard img{
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-}
-.flashBottomCard h5{
-    margin: 0;
-    padding: 0;
+.rev{
     font-size: 15px;
-    font-weight: 500;
-    color: black !important;
+    color: #bab6b6;
+}
+.disable,.disable {
+  pointer-events: none;
+  box-shadow: none;
+  color: #999 !important;
+  display: none;
+}
+.backs{
+    font-size: 30px !important;
+    position: absolute;
+    top:40%;
+    margin-left: 10px;
 
 }
-.flashBottomCard >div{
-    margin: 0;
-    padding: 0;
-    font-size: 15px;
-    font-weight: 500;
-    color: black !important;
-
+.nexts{
+    right: 4px;
 }
-.flashBottomCard span{
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    color: black !important;
-}
-.flashBottomCard p{
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    color: black  !important;
-}
-
 @media screen and (max-width:765px) {
     .flashWrapper{
         width: 100%;
     }
     .flashBottom{
         width: 100%;
-        display: flex;
         flex-wrap: nowrap;  
         overflow-x: scroll !important;  
     }
-    .flashTop h5{
-        font-size: 20px;
-    }
-    .flashTop h6{
-    }
-    .flash span{
-        margin: 10px 0 10px 0;
-    }
-    .flashBottomCard{
-        margin: 3px 7px;
-        width: 100px;
-        /* background-color: black; */
-    }
-    .flashBottomCard h5{
-        text-align: center;
-    }
-    .flashTop h5{
-        font-size: 20px;
-        font-weight: 500 ;
-    }
-    .flashTop h6{
-        font-size: 9px;
-        font-weight: 500 ;
-    }
-    .flash span{
-        margin-right: 10px;
-        font-size: 9px;
-        padding: 3px;
+   .flashTop{
+        flex-direction: column;
+        height: 125px;
+        margin-top: 10px;
+   }
+   .cover{
+        margin-right: 20px;
     }
   
 }

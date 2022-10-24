@@ -1,9 +1,10 @@
-import { CircularProgress } from '@mui/material'
+import { Button, CircularProgress, Paper } from '@mui/material'
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthContext'
 import Skeleton from '@mui/material/Skeleton';
+import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons'
 
 
 function ShowTimer({days, hours, minutes, seconds }) {
@@ -14,6 +15,11 @@ function ShowTimer({days, hours, minutes, seconds }) {
     const[message, setMessage] = useState("")
     const {user} = useContext(AuthContext)
     const[quantity, setQuantity] = useState(1)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postPerPage, setPostPerPage] = useState(4)
+    //To get current posts
+    const indexOfLastPage = currentPage * postPerPage
+    const indexOfFirstPage = indexOfLastPage - postPerPage
     useEffect(()=>{
         let ignore = false
        const Product = async() =>{
@@ -48,6 +54,17 @@ function ShowTimer({days, hours, minutes, seconds }) {
         setDisable(true)
       }
     }
+    function goToPrev(page){
+        setCurrentPage((page) => page - 1)
+    }
+    //go to next page
+    function goToNext (page){
+        setCurrentPage((page) => page + 1) 
+    }
+    const pageNumber = [];
+    for (let i = 1; i <= Math.ceil(product.length / postPerPage); i++){
+        pageNumber.push(i)
+    }
   return (
     <>
         <div className="flashTop">
@@ -61,20 +78,34 @@ function ShowTimer({days, hours, minutes, seconds }) {
                 
                     <Skeleton animation="wave" width="100%" height="198px" sx={{marginLeft:"10px", backgroundColor:"transparent"}} />
               :
-                product?.slice(0, 8).map((itm, index)=>(
-                    <div className="cover" key={index}>
-                            <Link to={`/product/${itm.id}`} className="TopSalesBottomCard" >
-                                <img src="/Images/boxer.jpg" alt="" />
-                                <h5>{itm.name}</h5>
-                                <div>{itm.discount}</div>
-                                <p>{itm.status} item remaining</p>
+                product?.slice(indexOfFirstPage, indexOfLastPage).map((itm, index)=>(
+                    <Paper elevation={3} className="cover" key={index}>
+                            <Link to={`/product/${itm.id}`} className="" >
+                                <div className="TopSALE">
+                                    <img src="/Images/boxer.jpg" alt="" />
+                                    <div className="addTo">
+                                        <Button sx={{backgroundColor:"black",borderRadius:"5px", fontSize:"10px"}} size="small" variant="contained" disabled={disable} onClick={()=>{addToCart({id:itm.id,name:itm.name, price:itm.discount,img:itm.avater})}}>{disable ? <CircularProgress thickness={4.0} style={{color:"white"}} size="13px"/>:"Add To Cart"}</Button>
+                                        <Button sx={{backgroundColor:"white", color:"black",borderRadius:"5px", fontSize:"10px"}} size="small" variant="contained">Quick View</Button>
+                                    </div>
+                                </div>
+                                <div className="Topsale">
+                                    <h5>{itm.name}</h5>
+                                    <p>{itm.status} item remaining</p>
+                                    <div className="TopsaleBot">
+                                       <div className="disc">{itm.discount} </div> 
+                                       <div className="rev">(25 reviews) </div> 
+                                    </div>
+                                    
+                                </div>
                             </Link>
-                            <button  disabled={disable}onClick={()=>{addToCart({id:itm.id,name:itm.name, price:itm.discount,img:itm.avater})}}>{disable ? <CircularProgress thickness={4.0} style={{color:"white"}} size="13px"/>:"Add To Cart"}</button>
-                        </div>
+                           
+                            {/* <button  disabled={disable}onClick={()=>{addToCart({id:itm.id,name:itm.name, price:itm.discount,img:itm.avater})}}>{disable ? <CircularProgress thickness={4.0} style={{color:"white"}} size="13px"/>:"Add To Cart"}</button> */}
+                        </Paper>
                 )) 
                 
             }
-            
+                <ArrowBackIos  className={`backs ${currentPage === 1 ? "disable": "" }`} htmlColor="black" onClick={goToPrev}/>
+                <ArrowForwardIos className={`backs nexts `} htmlColor="black" onClick={goToNext}/>    
         </div>
     </>
   )

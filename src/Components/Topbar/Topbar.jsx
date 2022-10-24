@@ -1,5 +1,5 @@
 import "./topbar.css"
-import {ArrowDropDown, HelpOutline, Person, Search, ShoppingCart} from "@material-ui/icons"
+import {ArrowDropDown, Dehaze, HelpOutline, Person, Search, ShoppingCart} from "@material-ui/icons"
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem';
 import { useState, useContext, useMemo } from "react";
@@ -77,16 +77,10 @@ function Topbar() {
         <div className="topbarWrapper">
             <div className="topbarRight">
                 <Link to="/" style={{display:"flex", alignItems:"center"}}>
-                  <img src="/Images/logo.jpg" className="logo" alt="logo" />
+                  {/* <img src="/Images/logo.jpg" className="logo" alt="logo" /> */}
                   <h3>Heavy Foot</h3>
                 </Link>
             </div>
-            <form className="topbarMiddle">
-              <div className="topbarMiddleSearch">
-                  <Search/>
-                  <input type="search" placeholder="Enter the Product Name" />
-              </div>
-            </form>
             <div className="topbarLeft">
                 <div className="topbarLeftInfo" 
                   id="basic-button"
@@ -127,11 +121,12 @@ function Topbar() {
                       <span>{cart  ? cart.length : 0}</span>
                     </div> 
                 </Link>
-                <div className="">
-                   {/* <Menu htmlColor="black" size="20" className="hidden"/> */}
+                <div className="topbarLeftInfo">
+                   <Search htmlColor="black"/>
                 </div>
-                
-                
+            </div>
+            <div className="hidden">
+              <Dehaze htmlColor="black" size="20" className=""/>
             </div>
         </div>
         <Menu

@@ -1,7 +1,11 @@
 .promotion{
     width:100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 .promotionWrapper{
+    width: 1000%;
     height: 250px;
     background-image: url(../../../public/Images/bg2.jpg);
     display: flex;
@@ -13,9 +17,10 @@
 .promotionTop{
     display: flex;
     width: 60%;
+    margin-left: 26px;
 }
 .promotionTop img{
-    width: 87%;
+    width: 83%;
     height: 100%;
     object-fit: fill;
   
@@ -70,6 +75,8 @@
 @media screen and (max-width:765px) {
      .promotionWrapper{
         flex-direction: column;
+        width: 100%;
+        height: 280px;
     }
    .promotionTop{
         width: 100%;

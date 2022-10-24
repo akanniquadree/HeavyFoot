@@ -7,6 +7,16 @@ export default function Footer() {
     <div className="footer">
         <div className="footerWrapper">
             <div className="footerOne">
+                <h4>Heavy Footage</h4>
+                <ul>
+                    <li>Faceook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>Telegram</li>
+                    <li></li>
+                </ul>
+            </div>
+            <div className="footerOne">
                 <h4>My Account</h4>
                 <ul>
                     <li>My Account</li>
@@ -16,18 +26,18 @@ export default function Footer() {
                     <li>My Compare</li>
                 </ul>
             </div>
-            <div className="footerTwo">
-            <h4>My Information</h4>
-                <ul>
-                    <li>My Information</li>
-                    <li>Information</li>
-                    <li>Order History</li>
-                    <li>Private Policy</li>
-                    <li>Site Map</li>
-                </ul>
+            <div className="footerOne">
+                <h4>My Information</h4>
+                    <ul>
+                        <li>My Information</li>
+                        <li>Information</li>
+                        <li>Order History</li>
+                        <li>Private Policy</li>
+                        <li>Site Map</li>
+                    </ul>
             </div>
-            <div className="footerThree">
-            <h4>Our Services</h4>
+            <div className="footerOne">
+                <h4>Our Services</h4>
                 <ul>
                     <li>Produc Recalll</li>
                     <li>Gift Vouchers</li>
@@ -36,8 +46,8 @@ export default function Footer() {
                     <li>Terms of Use</li>
                 </ul>
             </div>
-            <div className="footerFour">
-            <h4>Contact Us</h4>
+            <div className="footerOne">
+                <h4>Contact Us</h4>
                 <ul>
                     <li>My Information</li>
                     <li>Information</li>
@@ -46,9 +56,6 @@ export default function Footer() {
                     <li>Site Map</li>
                 </ul>
             </div>
-        </div>
-        <div className="footerBottom">
-            <span>CopyWrite c 2022 by Akanni Quadree. All Rights Reserved.</span>
         </div>
 
     </div>

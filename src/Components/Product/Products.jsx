@@ -6,6 +6,11 @@ import { Link, useParams } from 'react-router-dom'
 import { CircularProgress } from '@mui/material'
 import { useContext } from 'react'
 import { AuthContext } from '../../Context/AuthContext'
+import CategoryIcon from '@mui/icons-material/Category';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import PaletteIcon from '@mui/icons-material/Palette';
+import { Button, Paper } from '@material-ui/core'
+
 
 export default function Products() {
   const [product, setProduct] = useState([])
@@ -46,32 +51,43 @@ export default function Products() {
   return (
     <div className="products">
         <div className="productsWrapper">
-            <div className="productsProduct">
-              <div className="productProductsTop">
-                <h5>{name}</h5>
-              </div>
-              <div className="productsLists">
-                {
+          <div className="productFilter">
+            <ul className="productFilterLeft">
+              <li>Price Range</li>
+              <li><CategoryIcon />Category<ArrowDropDownIcon/></li>
+              <li><PaletteIcon/> Colour <ArrowDropDownIcon/></li>
+              <li>Size <ArrowDropDownIcon/></li>
+              <li>Filter <ArrowDropDownIcon/></li>
+              <li>Product Filter <ArrowDropDownIcon/></li>
+            </ul>
+            {/* <ul className="productFilterRight">
+                
+            </ul> */}
+          </div>
+             <div className="productsProduct">
+               {
                   product.map((itm, index) =>(
-                    <div className="productsListsWrapper" key={index}>
-                      <Link to={`/product/${itm.id}`}>
+                    <Paper elevation={3} className="productsListsWrapper" key={index}>
+                       <Link to={`/product/${itm.id}`}>
                         <div className="productListsTop">
                           <img src="/Images/boxer.jpg" alt="" />
+                          <div className="addTo">
+                          <Button sx={{backgroundColor:"black",borderRadius:"5px", fontSize:"10px"}} size="small" variant="contained" disabled={disable} onClick={()=>{addToCart({id:itm.id,name:itm.name, price:itm.discount,img:itm.avater})}}>{disable ? <CircularProgress thickness={4.0} style={{color:"white"}} size="13px"/>:"Add To Cart"}</Button>
+                          <Button sx={{backgroundColor:"white", color:"black",borderRadius:"5px", fontSize:"10px"}} size="small" variant="contained">Quick View</Button>
+                        </div>
                         </div>
                       </Link>
-                      <div className="productListsBottom">
+                     <div className="productListsBottom">
                       <Link to={`/product/${itm.id}`}>
                         <h5>{itm.name}</h5>
-                        <h6>{itm.discount}</h6>
                         <p>{itm.price}</p>
+                        <h6 className="disc">{itm.discount}</h6>
                         </Link>
-                        <button disabled={disable} className='productListsButton'onClick={()=>{addToCart({id:itm.id,name:itm.name, price:itm.discount,img:itm.avater})}}>{disable ? <CircularProgress thickness={4.0} style={{color:"white"}} size="13px"/>:"Add To Cart"}</button>
-                      </div>
-                    </div>
+                        {/* <button disabled={disable} className='productListsButton'onClick={()=>{addToCart({id:itm.id,name:itm.name, price:itm.discount,img:itm.avater})}}>{disable ? <CircularProgress thickness={4.0} style={{color:"white"}} size="13px"/>:"Add To Cart"}</button> */}
+                      </div>{/* */}
+                    </Paper>
                   ))
                 }
-                
-              </div>
             </div>
         </div>
     </div>

@@ -32,13 +32,16 @@ export default function Product() {
               <Topbar/>
               <div className="productTopbar">
                 <div className="productdetail">
-                  <Link to="/" className='vome'>Home</Link>
-                  <span className='vomes'> &gt; Product</span>
+                  <div className="productName">
+                    <h2>ACCESSORIES</h2>
+                    <p>
+                        We not only help you design exceptional products, but also make it easy for you to share your designs with more like-minded people.
+                    </p>
+                  </div>
                 </div>
-                  
               </div>
               {/* <ProductProm/> */}
-              {/* <Products/> */}
+              <Products/>
               {/* <Footer/> */}
           </>
           :

@@ -48,14 +48,14 @@
 }
 .flashBottom{
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     margin-top:20px;  
-    justify-content: space-between;
     position: relative
 }
 .cover{
-    width: 270px;
+    width: 263px;
     height: 320px;
+    margin-right: 34px;
 }
 .TopSALE{
     width: 270px;
@@ -101,7 +101,7 @@
 .Topsale h5{
     font-size: 17px;
     font-weight: 700;
-    width: 250px;
+    width: 230px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -177,6 +177,14 @@
     .flashBottom{
         width: 100%;
         display: flex;
+        flex-wrap: nowrap;  
+        overflow-x: scroll !important;  
+    }
+  
+}
+@media screen and (max-width:1365px) {
+    .flashBottom{
+        width: 100%;
         flex-wrap: nowrap;  
         overflow-x: scroll !important;  
     }

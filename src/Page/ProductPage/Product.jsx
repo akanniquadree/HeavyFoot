@@ -33,7 +33,7 @@ export default function Product() {
               <div className="productTopbar">
                 <div className="productdetail">
                   <div className="productName">
-                    <h2>ACCESSORIES</h2>
+                    <h2>{name}</h2>
                     <p>
                         We not only help you design exceptional products, but also make it easy for you to share your designs with more like-minded people.
                     </p>
@@ -42,7 +42,7 @@ export default function Product() {
               </div>
               {/* <ProductProm/> */}
               <Products/>
-              {/* <Footer/> */}
+              <Footer/>
           </>
           :
           <NotFound/>

@@ -1,5 +1,6 @@
 .products{
     width: 100vw;
+    overflow-x:hidden;
 }
 .productsWrapper{
     display: flex;

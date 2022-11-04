@@ -6,10 +6,8 @@ import { Link, useParams } from 'react-router-dom'
 import { CircularProgress } from '@mui/material'
 import { useContext } from 'react'
 import { AuthContext } from '../../Context/AuthContext'
-import CategoryIcon from '@mui/icons-material/Category';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import PaletteIcon from '@mui/icons-material/Palette';
 import { Button, Paper } from '@material-ui/core'
+import ProductFilter from './productFilter'
 
 
 export default function Products() {
@@ -52,17 +50,7 @@ export default function Products() {
     <div className="products">
         <div className="productsWrapper">
           <div className="productFilter">
-            <ul className="productFilterLeft">
-              <li>Price Range</li>
-              <li><CategoryIcon />Category<ArrowDropDownIcon/></li>
-              <li><PaletteIcon/> Colour <ArrowDropDownIcon/></li>
-              <li>Size <ArrowDropDownIcon/></li>
-              <li>Filter <ArrowDropDownIcon/></li>
-              <li>Product Filter <ArrowDropDownIcon/></li>
-            </ul>
-            {/* <ul className="productFilterRight">
-                
-            </ul> */}
+            <ProductFilter/>
           </div>
              <div className="productsProduct">
                {
